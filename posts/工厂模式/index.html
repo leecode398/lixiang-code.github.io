@@ -1,95 +1,144 @@
 <!DOCTYPE html>
 <html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  <link rel="prev" href="https://example.com/posts/%E7%BA%BF%E7%A8%8B%E9%94%81/" />
+  <link rel="next" href="https://example.com/posts/vim/" />
+  <link rel="canonical" href="https://example.com/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+            | Hugo Hermit
+       
+  </title>
+  <meta name="title" content=" | Hugo Hermit">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="theme-color" content="#494f5c">
-	<meta name="msapplication-TileColor" content="#494f5c">
-<meta itemprop="name" content="">
-<meta itemprop="description" content="工厂模式 1. 简单工厂模式 简单工厂模式（Simple Factory Pattern）：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。因为在简单工厂模式中用于创建实例的方法是静态（static）方法，因此简单工厂模式又被称为静态工厂方法（Static Factory Method）模式，它属于类创建型模式。 简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。简单工厂模式结构比较简单，其核心是工厂类的设计 例: 我们创建一个工厂结构体，并且创建一个产品接口，工厂可以创建产品，只要在工厂的某个方法中传入不同的参数，就可以返回实现产品接口的不同的对象
-  创建工厂结构体
-type Factory struct { }   创建产品接口
-type Product interface { create() }   创建两个产品
-// 产品1，实现产品接口 type Car struct { } func (c Car) create() { fmt.Println(&#34;this is car&#34;) } // 产品2，实现产品接口 type Bicycle struct { } func (b Bicycle) create() { fmt.Println(&#34;this is bicycle&#34;) }   为工厂结构添加一个方法用于生产产品(实例化对象)
-func (f Factory) Generate(name string) Product { switch name { case &#34;car&#34;: return Car{} case &#34;bicycle&#34;: return Bicycle{} default: return nil } }   通过传入不同方法得到不同的产品示例">
 
-<meta itemprop="wordCount" content="633">
+  
+  
+ 
 
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/example.com"
+    },
+    "articleSection" : "posts",
+    "name" : "",
+    "headline" : "",
+    "description" : "工厂模式 1. 简单工厂模式 简单工厂模式（Simple Factory Pattern）：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。因为在简单工厂模式中用于创建实例的方法是静态（static）方法，因此简单工厂模式又被称为静态工厂方法（Static Factory Method）模式，它属于类创建型模式。 简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。简单工厂模式结构比较简单，其核心是工厂类的设计 例: 我们创建一个工厂结构体，并且创建一个产品接口，工厂可以创建产品，只要在工厂的某个方法中传入不同的参数，就可以返回实现产品接口的不同的对象\n  创建工厂结构体\ntype Factory struct { }   创建产品接口\ntype Product interface { create() }   创建两个产品\n\/\/ 产品1，实现产品接口 type Car struct { } func (c Car) create() { fmt.Println(\x26#34;this is car\x26#34;) } \/\/ 产品2，实现产品接口 type Bicycle struct { } func (b Bicycle) create() { fmt.Println(\x26#34;this is bicycle\x26#34;) }   为工厂结构添加一个方法用于生产产品(实例化对象)\nfunc (f Factory) Generate(name string) Product { switch name { case \x26#34;car\x26#34;: return Car{} case \x26#34;bicycle\x26#34;: return Bicycle{} default: return nil } }   通过传入不同方法得到不同的产品示例",
+    "inLanguage" : "en-us",
+    "author" : "",
+    "creator" : "",
+    "publisher": "",
+    "accountablePerson" : "",
+    "copyrightHolder" : "",
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/example.com\/posts\/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F\/",
+    "wordCount" : "633",
+    "keywords" : [  "Hugo Hermit"]
+}
+</script>
 
-
-<meta itemprop="keywords" content="" /><meta property="og:title" content="" />
-<meta property="og:description" content="工厂模式 1. 简单工厂模式 简单工厂模式（Simple Factory Pattern）：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。因为在简单工厂模式中用于创建实例的方法是静态（static）方法，因此简单工厂模式又被称为静态工厂方法（Static Factory Method）模式，它属于类创建型模式。 简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。简单工厂模式结构比较简单，其核心是工厂类的设计 例: 我们创建一个工厂结构体，并且创建一个产品接口，工厂可以创建产品，只要在工厂的某个方法中传入不同的参数，就可以返回实现产品接口的不同的对象
-  创建工厂结构体
-type Factory struct { }   创建产品接口
-type Product interface { create() }   创建两个产品
-// 产品1，实现产品接口 type Car struct { } func (c Car) create() { fmt.Println(&#34;this is car&#34;) } // 产品2，实现产品接口 type Bicycle struct { } func (b Bicycle) create() { fmt.Println(&#34;this is bicycle&#34;) }   为工厂结构添加一个方法用于生产产品(实例化对象)
-func (f Factory) Generate(name string) Product { switch name { case &#34;car&#34;: return Car{} case &#34;bicycle&#34;: return Bicycle{} default: return nil } }   通过传入不同方法得到不同的产品示例" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://example.com/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="工厂模式 1. 简单工厂模式 简单工厂模式（Simple Factory Pattern）：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。因为在简单工厂模式中用于创建实例的方法是静态（static）方法，因此简单工厂模式又被称为静态工厂方法（Static Factory Method）模式，它属于类创建型模式。 简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。简单工厂模式结构比较简单，其核心是工厂类的设计 例: 我们创建一个工厂结构体，并且创建一个产品接口，工厂可以创建产品，只要在工厂的某个方法中传入不同的参数，就可以返回实现产品接口的不同的对象
-  创建工厂结构体
-type Factory struct { }   创建产品接口
-type Product interface { create() }   创建两个产品
-// 产品1，实现产品接口 type Car struct { } func (c Car) create() { fmt.Println(&#34;this is car&#34;) } // 产品2，实现产品接口 type Bicycle struct { } func (b Bicycle) create() { fmt.Println(&#34;this is bicycle&#34;) }   为工厂结构添加一个方法用于生产产品(实例化对象)
-func (f Factory) Generate(name string) Product { switch name { case &#34;car&#34;: return Car{} case &#34;bicycle&#34;: return Bicycle{} default: return nil } }   通过传入不同方法得到不同的产品示例"/>
-
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
-	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
-	<link rel="shortcut icon" href="/favicon.ico">
-
-	<title></title>
-	<link rel="stylesheet" href="https://example.com/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
-	
 </head>
 
-<body id="page">
-	
-	<header id="site-header" class="animated slideInUp">
-		<div class="hdr-wrapper section-inner">
-			<div class="hdr-left">
-				<div class="site-branding">
-					<a href="https://example.com">Hugo Hermit</a>
-				</div>
-				<nav class="site-nav hide-in-mobile">
-					
-				<a href="https://example.com/posts/">Posts</a>
-				<a href="https://example.com/about-hugo/">About</a>
-
-				</nav>
-			</div>
-			<div class="hdr-right hdr-icons">
-				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-			</div>
-		</div>
-	</header>
-	<div id="mobile-menu" class="animated fast">
-		<ul>
-			<li><a href="https://example.com/posts/">Posts</a></li>
-			<li><a href="https://example.com/about-hugo/">About</a></li>
-		</ul>
-	</div>
+  
 
 
-	<main class="site-main section-inner animated fadeIn faster">
-		<article class="thin">
-			<header class="post-header">
-				<div class="post-meta"><span>Jan 1, 0001</span></div>
-				<h1></h1>
-			</header>
-			<div class="content">
-				<h4 id="工厂模式">工厂模式<a href="#工厂模式" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
-<h4 id="1-简单工厂模式">1. 简单工厂模式<a href="#1-简单工厂模式" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Hugo Hermit</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="posts/" title="">Posts</a>
+                
+                <a class="menu-item" href="about-hugo/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">Hugo Hermit</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="posts/" title="">Posts</a>
+                
+                <a class="menu-item" href="about-hugo/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"></h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://example.com" rel="author"></a> with ♥ 
+                <span class="post-time">
+                on <time datetime=0001-01-01 itemprop="datePublished">January 1, 0001</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h4 id="工厂模式">工厂模式</h4>
+<h4 id="1-简单工厂模式">1. 简单工厂模式</h4>
 <pre><code>简单工厂模式（Simple Factory Pattern）：定义一个工厂类，它可以根据参数的不同返回不同类的实例，被创建的实例通常都具有共同的父类。因为在简单工厂模式中用于创建实例的方法是静态（static）方法，因此简单工厂模式又被称为静态工厂方法（Static Factory Method）模式，它属于类创建型模式。
 </code></pre><pre><code>简单工厂模式的要点在于：当你需要什么，只需要传入一个正确的参数，就可以获取你所需要的对象，而无须知道其创建细节。简单工厂模式结构比较简单，其核心是工厂类的设计
-</code></pre><h5 id="例">例:<a href="#例" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+</code></pre><h5 id="例">例:</h5>
 <p>我们创建一个<code>工厂结构体</code>，并且创建一个产品接口，工厂可以创建产品，只要在工厂的某个方法中传入不同的参数，就可以返回实现产品接口的不同的对象</p>
 <ol>
 <li>
@@ -148,12 +197,12 @@ func (f Factory) Generate(name string) Product { switch name { case &#34;car&#34
 <span class="nx">p2</span><span class="p">.</span><span class="nf">create</span><span class="p">()</span> <span class="c1">// output:   this is bicycle
 </span></code></pre></div></li>
 </ol>
-<h5 id="简单工厂模式的优缺点">简单工厂模式的优缺点<a href="#简单工厂模式的优缺点" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+<h5 id="简单工厂模式的优缺点">简单工厂模式的优缺点</h5>
 <pre><code>优点: 工厂类是整个工厂模式的核心，我们只需要传入给定的信息，就可以创建所需实例，在多人协作的时候，无需知道对象之间的内部依赖，可以直接创建，有利于整个软件体系结构的优化
 </code></pre><pre><code>缺点: 工厂类中包含了所有实例的创建逻辑，一旦这个工厂类出现问题，所有实例都会受到影响，并且，工厂类中生产的产品都基于一个共同的接口，一旦要添加不同种类的产品，这就会增加工厂类的复杂度，将不同种类的产品混合在一起，违背了单一职责，系统的灵活性和可维护性都会降低，并且当新增产品的时候，必须要修改工厂类，违背了『系统对扩展开放，对修改关闭』的原则
-</code></pre><h4 id="2-工厂方法模式">2. 工厂方法模式<a href="#2-工厂方法模式" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+</code></pre><h4 id="2-工厂方法模式">2. 工厂方法模式</h4>
 <p>在 <code>简单工厂</code> 中，依赖于唯一的工厂对象，如果我们需要实例化一个产品，那么就要向工厂中传入一个参数获取对应对象，如果要增加一种产品，就要在工厂中修改创建产品的函数，耦合性过高 ，而在 <code>工厂方法</code> 中，依赖工厂接口，我们可以通过实现工厂接口，创建多种工厂，将对象创建由一个对象负责所有具体类的实例化，变成由一群子类来负责对具体类的实例化，将过程解耦。</p>
-<h5 id="例-1">例:<a href="#例-1" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+<h5 id="例-1">例:</h5>
 <ol>
 <li>添加工厂接口和产品接口</li>
 </ol>
@@ -231,7 +280,7 @@ func (f Factory) Generate(name string) Product { switch name { case &#34;car&#34
 <span class="nx">b</span><span class="p">.</span><span class="nf">create</span><span class="p">()</span> <span class="c1">//this is Audi car
 </span></code></pre></div></li>
 </ol>
-<h5 id="工厂方法模式的优缺点">工厂方法模式的优缺点<a href="#工厂方法模式的优缺点" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+<h5 id="工厂方法模式的优缺点">工厂方法模式的优缺点</h5>
 <pre><code>优点:
 
 符合“开闭”原则，具有很强的的扩展性、弹性和可维护性。修改时只需要添加对应的工厂类即可
@@ -244,9 +293,9 @@ func (f Factory) Generate(name string) Product { switch name { case &#34;car&#34
 每增加一个产品时，都需要一个具体类和一个具体创建者，使得类的个数成倍增加，导致系统类数目过多，复杂性增加
 
 对简单工厂，增加功能修改的是工厂类；对工厂方法，增加功能修改的是产品类。
-</code></pre><h4 id="3-抽象工厂模式">3. 抽象工厂模式<a href="#3-抽象工厂模式" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+</code></pre><h4 id="3-抽象工厂模式">3. 抽象工厂模式</h4>
 <p>工厂模式用来创建一组相关或者相互依赖的对象，与工厂方法模式的区别就在于，工厂方法模式针对的是一个产品等级结构；而抽象工厂模式则是针对的多个产品等级结构， 我们可以将一种产品等级想象为一个产品族，所谓的产品族，是指位于不同产品等级结构中功能相关联的产品组成的家族。</p>
-<h5 id="例-2">例:<a href="#例-2" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+<h5 id="例-2">例:</h5>
 <ol>
 <li>工厂接口和产品接口</li>
 </ol>
@@ -320,12 +369,12 @@ func (f Factory) Generate(name string) Product { switch name { case &#34;car&#34
 <span class="nx">f</span> <span class="p">=</span> <span class="nb">new</span><span class="p">(</span><span class="nx">BenzFactory</span><span class="p">)</span>
 <span class="nx">b</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nf">CreateCar</span><span class="p">()</span>
 <span class="nx">b</span><span class="p">.</span><span class="nf">Intro</span><span class="p">()</span>
-</code></pre></div><h5 id="抽象工厂模式的优缺点">抽象工厂模式的优缺点<a href="#抽象工厂模式的优缺点" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+</code></pre></div><h5 id="抽象工厂模式的优缺点">抽象工厂模式的优缺点</h5>
 <pre><code>优点:
 抽象工厂模式除了具有工厂方法模式的优点外，最主要的优点就是可以在类的内部对产品族进行约束。所谓的产品族，一般或多或少的都存在一定的关联，抽象工厂模式就可以在类内部对产品族的关联关系进行定义和描述，而不必专门引入一个新的类来进行管理。
 </code></pre><pre><code>缺点:
 产品族的扩展将是一件十分费力的事情，假如产品族中需要增加一个新的产品，则几乎所有的工厂类都需要进行修改。所以使用抽象工厂模式时，对产品等级结构的划分是非常重要的
-</code></pre><h4 id="基于简单工厂模式的日志系统">基于简单工厂模式的日志系统<a href="#基于简单工厂模式的日志系统" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+</code></pre><h4 id="基于简单工厂模式的日志系统">基于简单工厂模式的日志系统</h4>
 <ol>
 <li>
 <p>构建结构体</p>
@@ -441,42 +490,84 @@ func (f Factory) Generate(name string) Product { switch name { case &#34;car&#34
 <span class="nx">log</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;testing&#34;</span><span class="p">)</span> <span class="c1">//发送cloud, 写入flash
 </span></code></pre></div></li>
 </ol>
-<h4 id="5-总结">5. 总结<a href="#5-总结" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h4 id="5-总结">5. 总结</h4>
 <p>创建型设计模式的结果都是得到指定对象，模式之间没有好坏，按需使用，只要能够达到解耦的目的，就是好模式。</p>
 </li>
 </ol>
 
-			</div>
-			<hr class="post-end">
-			<footer class="post-info">
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>633 Words</p>
-				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>0001-01-01 08:05 &#43;0805</p>
-			</footer>
-		</article>
-		<div class="post-nav thin">
-			<a class="next-post" href="https://example.com/posts/vim/">
-				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span></span>
-			</a>
-			<a class="prev-post" href="https://example.com/posts/%E7%BA%BF%E7%A8%8B%E9%94%81/">
-				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span></span>
-			</a>
-		</div>
-		<div id="comments" class="thin">
-</div>
-	</main>
+    </div>
 
-	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
-		<p>&copy; 2021 <a href="https://example.com">John Doe</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
-		<p>
-			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://example.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
-		</p>
-	</footer>
+    <div class="post-copyright">
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://example.com/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/>https://example.com/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://example.com">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://example.com/posts/%E7%BA%BF%E7%A8%8B%E9%94%81/" class="prev" rel="prev" title=""><i class="iconfont icon-left"></i>&nbsp;</a>
+         
+        
+        <a href="https://example.com/posts/vim/" class="next" rel="next" title="">&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
 
 
 
-	<script src="https://example.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
-	
 
-</body>
 
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
 </html>
