@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LeaveIt on LeaveIt</title>
-    <link>https://example.com/</link>
+    <link>https://lixiang-code.github.io/</link>
     <description>Recent content in LeaveIt on LeaveIt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -10,10 +10,10 @@
     
     <item>
       <title>The &#34;figure&#34; Shortcode</title>
-      <link>https://example.com/the-figure-shortcode/</link>
+      <link>https://lixiang-code.github.io/the-figure-shortcode/</link>
       <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
       
-      <guid>https://example.com/the-figure-shortcode/</guid>
+      <guid>https://lixiang-code.github.io/the-figure-shortcode/</guid>
       <description>&lt;p&gt;Hugo has &lt;code&gt;figure&lt;/code&gt; shortcode built in, so you can easily add figcaptions or hyperlink rel attributes to images. Documentations can be found here:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://gohugo.io/content-management/shortcodes/#figure&#34;&gt;https://gohugo.io/content-management/shortcodes/#figure&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This theme has 3 CSS classes made for figure elements:&lt;/p&gt;
@@ -62,10 +62,10 @@
     
     <item>
       <title>vim guide</title>
-      <link>https://example.com/vim/</link>
+      <link>https://lixiang-code.github.io/vim/</link>
       <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
       
-      <guid>https://example.com/vim/</guid>
+      <guid>https://lixiang-code.github.io/vim/</guid>
       <description>&lt;h3 id=&#34;vim&#34;&gt;VIM&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
@@ -294,10 +294,10 @@ c
     
     <item>
       <title>Post With Featured Image</title>
-      <link>https://example.com/post-with-featured-image/</link>
+      <link>https://lixiang-code.github.io/post-with-featured-image/</link>
       <pubDate>Mon, 01 Oct 2018 16:15:09 +0800</pubDate>
       
-      <guid>https://example.com/post-with-featured-image/</guid>
+      <guid>https://lixiang-code.github.io/post-with-featured-image/</guid>
       <description>&lt;p&gt;Just define the image URL in the content’s front matter, the featured image will be displayed as the background.&lt;/p&gt;
 &lt;p&gt;For example:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;---
@@ -310,10 +310,10 @@ c
     
     <item>
       <title>Creating a New Theme</title>
-      <link>https://example.com/creating-a-new-theme/</link>
+      <link>https://lixiang-code.github.io/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/creating-a-new-theme/</guid>
+      <guid>https://lixiang-code.github.io/creating-a-new-theme/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.&lt;/p&gt;
@@ -1125,10 +1125,10 @@ $ vi themes/zafta/layouts/_default/single.html
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://example.com/hugoisforlovers/</link>
+      <link>https://lixiang-code.github.io/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/hugoisforlovers/</guid>
+      <guid>https://lixiang-code.github.io/hugoisforlovers/</guid>
       <description>&lt;h2 id=&#34;step-1-install-hugo&#34;&gt;Step 1. Install Hugo&lt;/h2&gt;
 &lt;p&gt;Go to &lt;a href=&#34;https://github.com/spf13/hugo/releases&#34;&gt;Hugo releases&lt;/a&gt; and download the
 appropriate version for your OS and architecture.&lt;/p&gt;
