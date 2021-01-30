@@ -1,138 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo Hermit</title>
-    <link>https://example.com/</link>
-    <description>Recent content on Hugo Hermit</description>
+    <title>lee blog on lee blog</title>
+    <link>https://lixiang-code.github.io/</link>
+    <description>Recent content in lee blog on lee blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
     <lastBuildDate>Sat, 30 Jan 2021 21:11:03 +0800</lastBuildDate>
-    
-	<atom:link href="https://example.com/index.xml" rel="self" type="application/rss+xml" />
-    
+    <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title></title>
-      <link>https://example.com/test/</link>
+      <link>https://lixiang-code.github.io/test/</link>
       <pubDate>Sat, 30 Jan 2021 21:11:03 +0800</pubDate>
       
-      <guid>https://example.com/test/</guid>
-      <description>TODOhello lll </description>
+      <guid>https://lixiang-code.github.io/test/</guid>
+      <description>&lt;h2 id=&#34;hello&#34;&gt;&lt;!-- raw HTML omitted --&gt;TODO&lt;!-- raw HTML omitted --&gt; hello&lt;/h2&gt;
+&lt;h3 id=&#34;lll&#34;&gt;lll&lt;/h3&gt;
+</description>
     </item>
     
     <item>
-      <title>The &#34;figure&#34; Shortcode</title>
-      <link>https://example.com/posts/the-figure-shortcode/</link>
+      <title>Posts</title>
+      <link>https://lixiang-code.github.io/posts/</link>
       <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
       
-      <guid>https://example.com/posts/the-figure-shortcode/</guid>
-      <description>Hugo has figure shortcode built in, so you can easily add figcaptions or hyperlink rel attributes to images. Documentations can be found here:
-https://gohugo.io/content-management/shortcodes/#figure
-This theme has 3 CSS classes made for figure elements:
- big: images will break the width limit of main content area. left: images will float to the left. right: images will float to the right.  If a figure has no class set, the image will behave just like a normal markdown image: !</description>
-    </item>
-    
-    <item>
-      <title>Post With Featured Image</title>
-      <link>https://example.com/posts/post-with-featured-image/</link>
-      <pubDate>Mon, 01 Oct 2018 16:15:09 +0800</pubDate>
-      
-      <guid>https://example.com/posts/post-with-featured-image/</guid>
-      <description>Just define the image URL in the content’s front matter, the featured image will be displayed as the background.
-For example:
----images:- https://picsum.photos/1024/768/?random---This is an array, you can set multiple urls, only the first url will be used. These images is also used in Twitter Cards and the Open Graph metadata.</description>
-    </item>
-    
-    <item>
-      <title>Typography</title>
-      <link>https://example.com/posts/typography/</link>
-      <pubDate>Sat, 29 Sep 2018 11:36:33 +0800</pubDate>
-      
-      <guid>https://example.com/posts/typography/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
- An apple is a sweet, edible fruit produced by an apple tree (Malus pumila).</description>
-    </item>
-    
-    <item>
-      <title>Creating a New Theme</title>
-      <link>https://example.com/posts/creating-a-new-theme/</link>
-      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/posts/creating-a-new-theme/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
+      <guid>https://lixiang-code.github.io/posts/</guid>
+      <description></description>
     </item>
     
     <item>
       <title>About Hugo</title>
-      <link>https://example.com/about-hugo/</link>
+      <link>https://lixiang-code.github.io/about-hugo/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/about-hugo/</guid>
-      <description>Hugo is the world’s fastest framework for building websites. It is written in Go.
-It makes use of a variety of open source projects including:
- https://github.com/russross/blackfriday https://github.com/alecthomas/chroma https://github.com/muesli/smartcrop https://github.com/spf13/cobra https://github.com/spf13/viper  Learn more and contribute on GitHub.</description>
-    </item>
-    
-    <item>
-      <title>(Hu)go Template Primer</title>
-      <link>https://example.com/posts/goisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/posts/goisforlovers/</guid>
-      <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
-This document is a brief primer on using Go templates.</description>
-    </item>
-    
-    <item>
-      <title>Getting Started with Hugo</title>
-      <link>https://example.com/posts/hugoisforlovers/</link>
-      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/posts/hugoisforlovers/</guid>
-      <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at Install Hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the Hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/posts/beego/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/posts/beego/</guid>
-      <description>beego架构 积木式集合
-cache 缓存模块
-config 配置模块
-context 上下文模块
-logs 日志模块
-orm	和数据库操作相关模块
-session 会话
-httplib 网络相关模块
-beego执行逻辑 页面(V) &amp;mdash; 控制(C) &amp;mdash; 数据库(M)
-beego项目结构 |_____config | |---app.config |_____controllers(C) | |---admin | |---default.go |_____main.go |_____modles(M) | |---modles.go |_____static | |---css | |---ico | |---img | |---js |_____views(V) | |---admin | |---index.tpl config 配置文件
-controllers 控制ceng
-main.go 主入口
-modles 和数据库相关
-statics 静态文件(html, css, js)
-views 页面展示
-快速开发 1.环境安装
-2.安装bee工具
-bee命令 new 基于web开发
-api 基于手机接口开发</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://example.com/posts/dbgsystem/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://example.com/posts/dbgsystem/</guid>
-      <description>1. Trace 1.1 cloud agent/src/cmagtstatus.c 44: LOG_ERROR(&amp;#34;STATS : Create sending timer list failure! \n&amp;#34;); 81: LOG_FATAL(&amp;#34;STATUS : Single status obj is NULL! \n&amp;#34;); 121: LOG_ERROR(&amp;#34;STATUS :Start publishing timer failure! \n&amp;#34;); 140: LOG_ERROR(&amp;#34;STATUS :Stop publishing timer failure! \n&amp;#34;); agent/src/cmagtfwupgrade.c 81: LOG_INFO(&amp;#34;FW Upgrade is busy!\n&amp;#34;); 100: LOG_ERROR(&amp;#34;Create FW upgrade task fail ! \n&amp;#34;); 142: CM_CL_LOG_MSG(SYSLOG_INFO_LEVEL,CL_LOG_FW_UPGRADE_PROGRESS, 143: SYSLOG_KEY_STRING, CL_FW_UPGRADE_REASON_CODE_NONE); 164: CM_CL_LOG_MSG(SYSLOG_CRITICAL_LEVEL,CL_LOG_FW_UPGRADE_FAILED, 165: SYSLOG_KEY_STRING, gau1ErrorReason); 223: LOG_INFO(&amp;#34;CmAPIWebnmHttpCltFileDownload error[%d]!\n&amp;#34;,i4HttpCltError); 241: CM_CL_LOG_MSG(SYSLOG_CRITICAL_LEVEL,CL_LOG_FW_UPGRADE_FAILED, 242: SYSLOG_KEY_STRING, au1ErrorStr); 254: CM_CL_LOG_MSG(SYSLOG_INFO_LEVEL,CL_LOG_FW_UPGRADE_PROGRESS, 255: SYSLOG_KEY_STRING, CL_FW_UPGRADE_DOWNLOAD_SUCCESS); 265: LOG_INFO(&amp;#34;CmAPIFwUpgradeProcess error!</description>
+      <guid>https://lixiang-code.github.io/about-hugo/</guid>
+      <description>&lt;p&gt;Hugo is the &lt;strong&gt;world’s fastest framework for building websites&lt;/strong&gt;. It is written in Go.&lt;/p&gt;
+&lt;p&gt;It makes use of a variety of open source projects including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/russross/blackfriday&#34;&gt;https://github.com/russross/blackfriday&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/alecthomas/chroma&#34;&gt;https://github.com/alecthomas/chroma&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/muesli/smartcrop&#34;&gt;https://github.com/muesli/smartcrop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/cobra&#34;&gt;https://github.com/spf13/cobra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;https://github.com/spf13/viper&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Learn more and contribute on &lt;a href=&#34;https://github.com/gohugoio&#34;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+</description>
     </item>
     
   </channel>
