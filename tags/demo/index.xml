@@ -25,6 +25,20 @@ This theme has 3 CSS classes made for figure elements:
     </item>
     
     <item>
+      <title>vim</title>
+      <link>https://lixiang-code.github.io/vim/</link>
+      <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
+      
+      <guid>https://lixiang-code.github.io/vim/</guid>
+      <description>VIM    Version Change Description Author Date     1.0 vim基本使用方法 lixiang 2020/8/20                      1.安装 到http://172.22.102.206/documents/392下载cscope.shell, .vim和 .vimrc 拷贝.vim问价夹和.vimrc文件到用户根目录(~/) 在项目code目录及sdk目录执行脚本cscope.shell(也可以在项目根目录) 2.vim常用快捷键 2.1. 移动光标
+​	基础移动:
+h(左), j(下), k(上), l(右) ​	高级移动:
+w (移动到下个单词开头) e (移动到单词尾) f+(char) (移动到当先行光标后的第一个char处) ​	借助插件移动光标(vim-easymotion)
+​	是自己绑定的快捷键,目前是 ,
+&amp;lt;leader&amp;gt;&amp;lt;leader&amp;gt;s+char(可视页面所有char位置) &amp;lt;leader&amp;gt;&amp;lt;leader&amp;gt;f+char(光标后可视char位置) &amp;lt;leader&amp;gt;&amp;lt;leader&amp;gt;w(光标后所有单词词首) &amp;lt;leader&amp;gt;&amp;lt;leader&amp;gt;e(光标后所有单词词尾) &amp;lt;leader&amp;gt;&amp;lt;leader&amp;gt;j(光标后所有行首) &amp;lt;leader&amp;gt;&amp;lt;leader&amp;gt;k(光标前所有行首) ​	重复操作</description>
+    </item>
+    
+    <item>
       <title>Post With Featured Image</title>
       <link>https://lixiang-code.github.io/post-with-featured-image/</link>
       <pubDate>Mon, 01 Oct 2018 16:15:09 +0800</pubDate>
