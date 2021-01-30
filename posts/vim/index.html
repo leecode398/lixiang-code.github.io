@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="VIM    Version Change Description Author Date     1.0 vim基本使用方法 lixiang 2020/8/20                      1.安装 到http://172.22.102.206/documents/392下载cscope.shell, .vim和 .vimrc 拷贝.vim问价夹和.vimrc文件到用户根目录(~/) 在项目code目录及sdk目录执行脚本cscope.shell(也可以在项目根目录) 2.vim常用快捷键 2.1. 移动光标
+​	基础移动:
+h(左), j(下), k(上), l(右) ​	高级移动:
+w (移动到下个单词开头) e (移动到单词尾) f&#43;(char) (移动到当先行光标后的第一个char处) ​	借助插件移动光标(vim-easymotion)
+​	是自己绑定的快捷键,目前是 ,
+&lt;leader&gt;&lt;leader&gt;s&#43;char(可视页面所有char位置) &lt;leader&gt;&lt;leader&gt;f&#43;char(光标后可视char位置) &lt;leader&gt;&lt;leader&gt;w(光标后所有单词词首) &lt;leader&gt;&lt;leader&gt;e(光标后所有单词词尾) &lt;leader&gt;&lt;leader&gt;j(光标后所有行首) &lt;leader&gt;&lt;leader&gt;k(光标前所有行首) ​	重复操作">
+
+<meta itemprop="wordCount" content="268">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="" />
+<meta property="og:description" content="VIM    Version Change Description Author Date     1.0 vim基本使用方法 lixiang 2020/8/20                      1.安装 到http://172.22.102.206/documents/392下载cscope.shell, .vim和 .vimrc 拷贝.vim问价夹和.vimrc文件到用户根目录(~/) 在项目code目录及sdk目录执行脚本cscope.shell(也可以在项目根目录) 2.vim常用快捷键 2.1. 移动光标
+​	基础移动:
+h(左), j(下), k(上), l(右) ​	高级移动:
+w (移动到下个单词开头) e (移动到单词尾) f&#43;(char) (移动到当先行光标后的第一个char处) ​	借助插件移动光标(vim-easymotion)
+​	是自己绑定的快捷键,目前是 ,
+&lt;leader&gt;&lt;leader&gt;s&#43;char(可视页面所有char位置) &lt;leader&gt;&lt;leader&gt;f&#43;char(光标后可视char位置) &lt;leader&gt;&lt;leader&gt;w(光标后所有单词词首) &lt;leader&gt;&lt;leader&gt;e(光标后所有单词词尾) &lt;leader&gt;&lt;leader&gt;j(光标后所有行首) &lt;leader&gt;&lt;leader&gt;k(光标前所有行首) ​	重复操作" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/vim/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="VIM    Version Change Description Author Date     1.0 vim基本使用方法 lixiang 2020/8/20                      1.安装 到http://172.22.102.206/documents/392下载cscope.shell, .vim和 .vimrc 拷贝.vim问价夹和.vimrc文件到用户根目录(~/) 在项目code目录及sdk目录执行脚本cscope.shell(也可以在项目根目录) 2.vim常用快捷键 2.1. 移动光标
+​	基础移动:
+h(左), j(下), k(上), l(右) ​	高级移动:
+w (移动到下个单词开头) e (移动到单词尾) f&#43;(char) (移动到当先行光标后的第一个char处) ​	借助插件移动光标(vim-easymotion)
+​	是自己绑定的快捷键,目前是 ,
+&lt;leader&gt;&lt;leader&gt;s&#43;char(可视页面所有char位置) &lt;leader&gt;&lt;leader&gt;f&#43;char(光标后可视char位置) &lt;leader&gt;&lt;leader&gt;w(光标后所有单词词首) &lt;leader&gt;&lt;leader&gt;e(光标后所有单词词尾) &lt;leader&gt;&lt;leader&gt;j(光标后所有行首) &lt;leader&gt;&lt;leader&gt;k(光标前所有行首) ​	重复操作"/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title></title>
+	<link rel="stylesheet" href="https://example.com/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://example.com">Hugo Hermit</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://example.com/posts/">Posts</a>
+				<a href="https://example.com/about-hugo/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://example.com/posts/">Posts</a></li>
+			<li><a href="https://example.com/about-hugo/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jan 1, 0001</span></div>
+				<h1></h1>
+			</header>
+			<div class="content">
+				<h3 id="vim">VIM<a href="#vim" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Change Description</th>
+<th>Author</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0</td>
+<td>vim基本使用方法</td>
+<td>lixiang</td>
+<td>2020/8/20</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="1安装">1.安装<a href="#1安装" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>到http://172.22.102.206/documents/392下载cscope.shell, .vim和 .vimrc
+
+拷贝.vim问价夹和.vimrc文件到用户根目录(~/)
+
+在项目code目录及sdk目录执行脚本cscope.shell(也可以在项目根目录)
+</code></pre><h4 id="2vim常用快捷键">2.vim常用快捷键<a href="#2vim常用快捷键" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><strong>2.1. 移动光标</strong></p>
+<p>​	基础移动:</p>
+<pre><code>h(左), j(下), k(上), l(右)
+</code></pre><p>​	高级移动:</p>
+<pre><code>w (移动到下个单词开头)
+e (移动到单词尾)
+f+(char) (移动到当先行光标后的第一个char处)
+</code></pre><p>​	借助插件移动光标(vim-easymotion)</p>
+<p>​	<!-- raw HTML omitted -->是自己绑定的快捷键,目前是 ,</p>
+<pre><code>&lt;leader&gt;&lt;leader&gt;s+char(可视页面所有char位置)
+&lt;leader&gt;&lt;leader&gt;f+char(光标后可视char位置)
+&lt;leader&gt;&lt;leader&gt;w(光标后所有单词词首)
+&lt;leader&gt;&lt;leader&gt;e(光标后所有单词词尾)
+&lt;leader&gt;&lt;leader&gt;j(光标后所有行首)
+&lt;leader&gt;&lt;leader&gt;k(光标前所有行首)
+</code></pre><p>​	重复操作</p>
+<pre><code>数字+操作符 (9j)
+</code></pre><p><strong>2.2.插入</strong></p>
+<pre><code>i(光标前插入), a(光标后插入), s(替换光标处字符)
+I(行首插入), A(行尾插入), S(替换整行)
+o(切换到下一行插入), O(切换到上一行插入)
+</code></pre><p><strong>2.3.删除</strong></p>
+<pre><code>x(剪切当前字符)
+dd(剪切整行)
+可以加数字进行重复操作
+</code></pre><p><strong>2.4.选中,复制,粘贴</strong></p>
+<pre><code>v(选中当前字符,可以移动光标拖拽)
+V(选中当前行,会复制回车)
+y(复制)
+p(粘贴到光标后)
+P(粘贴到光标前)
+</code></pre><p><strong>2.5.撤销与反撤销</strong></p>
+<pre><code>u(撤销)
+Ctrl-r(反撤销)
+</code></pre><h4 id="3对比source-insight的功能简介">3.对比source insight的功能简介<a href="#3对比source-insight的功能简介" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<table>
+<thead>
+<tr>
+<th>常用的source insight功能:</th>
+<th>vim快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>查看光标所在函数,变量定义</td>
+<td>Ctrl-] , <!-- raw HTML omitted -->sg</td>
+</tr>
+<tr>
+<td>查看光标所在该函数被调用的地方</td>
+<td><!-- raw HTML omitted -->sc</td>
+</tr>
+<tr>
+<td>查看光标所在单词在代码出现(忽略注释)</td>
+<td><!-- raw HTML omitted -->ss</td>
+</tr>
+<tr>
+<td>查看光标所在单词在项目出现的地方(可以搜注释)</td>
+<td><!-- raw HTML omitted -->st</td>
+</tr>
+<tr>
+<td>查看所输入单词在项目出现的地方</td>
+<td>Ctrl-f</td>
+</tr>
+<tr>
+<td>返 回</td>
+<td>Ctrl-t</td>
+</tr>
+</tbody>
+</table>
+<h4 id="4好用插件">4.好用插件<a href="#4好用插件" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p><strong>4.1模糊搜索文件名</strong></p>
+<pre><code>fzf: Ctrl-p
+</code></pre><p><strong>4.2搜索单词出现的文件</strong></p>
+<pre><code>Ag: &lt;leader&gt;a(搜索当前单词)
+		&lt;leader&gt;g(搜索输入单词)
+</code></pre><p><strong>4.3高亮单词</strong></p>
+<pre><code>interestingword:&lt;leader&gt;k(高亮/取消高亮 当前单词)
+</code></pre><p><strong>4.4快速插入注释</strong></p>
+<pre><code>&lt;leader&gt;1
+</code></pre><p><strong>4.5文件树</strong></p>
+<pre><code>nerdtree:&lt;leader&gt;e
+defx:
+x 关闭文件夹
+h 关闭文件夹
+j 上移
+k 下移
+l 文件夹则展开，文件则打开
+o 文件夹则展开，文件则打开
+I split 分屏打开
+m 移动
+c 拷贝
+p 粘贴 移动或拷贝的
+r 重命名
+shift-k 在当前光标下新建文件夹
+shift-n 在当前光标下新建文件
+shift_c 切换样式
+d 删除光标所在的文件或文件夹
+yy 输出当前光标所在的路径
+</code></pre><p><strong>4.6函数列表</strong></p>
+<pre><code>tagbar:F7
+</code></pre><p><strong>4.7新建tab</strong></p>
+<pre><code>打开多文件无需打开多个vim终端
+&lt;leader&gt;o(打开一个新的tab,可以指定文件)
+&lt;leader&gt;n(切换到下一个tab)
+&lt;leader&gt;p(切换到上一个tab)
+&lt;leader&gt;c(关闭tab)
+</code></pre><h4 id="5插件管理工具vim-plughttpsgithubcomjunegunnvim-plug">5.插件管理工具(<a href="https://github.com/junegunn/vim-plug">vim-plug</a>)<a href="#5插件管理工具vim-plughttpsgithubcomjunegunnvim-plug" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>~/.vimrc
+call plug#begin()
+Plug 'majutsushi/tagbar'
+...
+call plug#end()
+</code></pre><h4 id="6快捷键映射">6.快捷键映射<a href="#6快捷键映射" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<pre><code>map
+命令格式：
+:map {lhs} {rhs}
+其含义是，在:map作用的模式中把键系列 {lhs} 映射为 {rhs}，{rhs}可进行映射扫描，也就是可递归映射。
+
+举例：
+:map td :tabnew .&lt;cr&gt;
+含义：在其作用模式（普通、可视、操作符）下，输入td等价于输入 :tabnew . &lt;cr&gt;。而普通模式下输入:tabnew . &lt;cr&gt;就是打开当前目录
+如果再定义绑定 :map ts td，就是指在其作用模式下输入ts等价于td，也就是打开当前目录。不过如果没有特殊需要，一般不建议递归映射。
+
+noremap
+:noremap和:map命令相对，作用模式和命令格式都相同，只不过不允许再对{rhs}进行映射扫描，也就是{lhs}定义后的映射就是{rhs}的键序列，不会再对{rhs}键序列重新解释扫描。它一般用于重定义一个命令，当然如果:map不需要递归映射的话，建议使用:noremap
+比如：
+:noremap ts td
+它的意思是在其作用模式下，输入ts就是输入td，但是和:map不同的是，此时td再不会做进一步扫描解释。虽然之前已经定义了td，但是不会对td再做扫描。
+
+unmap
+:unmap是对应取消:map绑定的｛lhs｝，作用模式相同，命令格式 :unmap {lhs}。
+例如：
+:unmap td
+就是取消在其作用模式中td的绑定，比如之前td被绑定为:tabnew .&lt;cr&gt;，此时此绑定消失。
+
+mapclear
+:mapclear时对应取消所有:map绑定的，慎用！
+
+只用于普通模式的
+:nmap
+:nmap是:map的普通模式板，也就是说其绑定的键只作用于普通模式。
+例如：
+:nmap &lt;leader&gt;d :tabnew .&lt;cr&gt; 和 :map td :tabnew .&lt;cr&gt; 在普通模式下等效
+:nnoremap
+:nnorempa和:nmap的关系和:noremap和:map的关系一样，只是:nmap的非递归版
+:nunmap
+:nunmap和:nmap的关系和:unmap和:map的关系一样，取消:nmap的绑定。
+:nmapclear
+:nmapclear是对应取消所有:map绑定的，慎用！
+
+nore
+表示非递归。
+递归的映射。其实很好理解，也就是如果键a被映射成了b，c又被映射成了a，如果映射是递归的，那么c就被映射成了b。
+n
+表示在普通模式下生效
+v
+表示在可视模式下生效
+i
+表示在插入模式下生效
+c
+表示在命令行模式下生效
+</code></pre><p><strong>键表</strong></p>
+<pre><code>&lt;k0&gt; - &lt;k9&gt; 小键盘 0 到 9
+&lt;S-...&gt; Shift＋键
+&lt;C-...&gt; Control＋键
+&lt;M-...&gt; Alt＋键 或 meta＋键
+&lt;A-...&gt; 同 &lt;M-...&gt;
+&lt;Esc&gt; Escape 键
+&lt;Up&gt; 光标上移键
+&lt;Space&gt; 插入空格
+&lt;Tab&gt; 插入Tab
+&lt;CR&gt; 等于&lt;Enter&gt;
+</code></pre><h4 id="7待解决问题">7.待解决问题<a href="#7待解决问题" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<p>7.1.语法高亮</p>
+<p>7.2.单词高亮仅6个</p>
+<p>7.3.Ag在根目录无法搜索,比终端直接搜索慢</p>
+<p>7.4.搜索列表无法保存</p>
+<p>7.5.使用y无法拷贝到Windows(Mac)</p>
+<p>j</p>
+
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>268 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>0001-01-01 08:05 &#43;0805</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://example.com/posts/tcpreplay/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span></span>
+			</a>
+			<a class="prev-post" href="https://example.com/posts/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span></span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://example.com">John Doe</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://example.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://example.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>

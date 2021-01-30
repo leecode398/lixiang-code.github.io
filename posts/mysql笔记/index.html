@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="theme-color" content="#494f5c">
+	<meta name="msapplication-TileColor" content="#494f5c">
+<meta itemprop="name" content="">
+<meta itemprop="description" content="MySql笔记 基本使用 DDL语句 1. 创建database
+mysql&gt; create database test1; Query OK, 1 row affected (0.00 sec) 2. 查看datebase
+mysql&gt; show databases; &#43;--------------------&#43; | Database | &#43;--------------------&#43; | information_schema | | cluster | | mysql | | test | | test1 | &#43;--------------------&#43; 5 rows in set (0.00 sec) 3. 使用database
+mysql&gt; use mysql Database changed 4. 查看数据库所有表
+mysql&gt; show tables; &#43;---------------------------&#43; | Tables_in_mysql | &#43;---------------------------&#43; | columns_priv | | db | | event | | func | | general_log | | help_category | | help_keyword | | help_relation | | help_topic | | host | | plugin | | proc | | procs_priv | | slow_log | | tables_priv | | time_zone | | time_zone_leap_second | | time_zone_name | | time_zone_transition | | time_zone_transition_type | | user | &#43;---------------------------&#43; 21 rows in set (0.">
+
+<meta itemprop="wordCount" content="3872">
+
+
+
+<meta itemprop="keywords" content="" /><meta property="og:title" content="" />
+<meta property="og:description" content="MySql笔记 基本使用 DDL语句 1. 创建database
+mysql&gt; create database test1; Query OK, 1 row affected (0.00 sec) 2. 查看datebase
+mysql&gt; show databases; &#43;--------------------&#43; | Database | &#43;--------------------&#43; | information_schema | | cluster | | mysql | | test | | test1 | &#43;--------------------&#43; 5 rows in set (0.00 sec) 3. 使用database
+mysql&gt; use mysql Database changed 4. 查看数据库所有表
+mysql&gt; show tables; &#43;---------------------------&#43; | Tables_in_mysql | &#43;---------------------------&#43; | columns_priv | | db | | event | | func | | general_log | | help_category | | help_keyword | | help_relation | | help_topic | | host | | plugin | | proc | | procs_priv | | slow_log | | tables_priv | | time_zone | | time_zone_leap_second | | time_zone_name | | time_zone_transition | | time_zone_transition_type | | user | &#43;---------------------------&#43; 21 rows in set (0." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://example.com/posts/mysql%E7%AC%94%E8%AE%B0/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="MySql笔记 基本使用 DDL语句 1. 创建database
+mysql&gt; create database test1; Query OK, 1 row affected (0.00 sec) 2. 查看datebase
+mysql&gt; show databases; &#43;--------------------&#43; | Database | &#43;--------------------&#43; | information_schema | | cluster | | mysql | | test | | test1 | &#43;--------------------&#43; 5 rows in set (0.00 sec) 3. 使用database
+mysql&gt; use mysql Database changed 4. 查看数据库所有表
+mysql&gt; show tables; &#43;---------------------------&#43; | Tables_in_mysql | &#43;---------------------------&#43; | columns_priv | | db | | event | | func | | general_log | | help_category | | help_keyword | | help_relation | | help_topic | | host | | plugin | | proc | | procs_priv | | slow_log | | tables_priv | | time_zone | | time_zone_leap_second | | time_zone_name | | time_zone_transition | | time_zone_transition_type | | user | &#43;---------------------------&#43; 21 rows in set (0."/>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+	<link rel="shortcut icon" href="/favicon.ico">
+
+	<title></title>
+	<link rel="stylesheet" href="https://example.com/css/style.min.eac77496566fd7d5768fd650ddb0b2b181ca6a2d7c5fdd6fe6b8ba4bf47e566f.css" integrity="sha256-6sd0llZv19V2j9ZQ3bCysYHKai18X91v5ri6S/R+Vm8=" crossorigin="anonymous">
+	
+</head>
+
+<body id="page">
+	
+	<header id="site-header" class="animated slideInUp">
+		<div class="hdr-wrapper section-inner">
+			<div class="hdr-left">
+				<div class="site-branding">
+					<a href="https://example.com">Hugo Hermit</a>
+				</div>
+				<nav class="site-nav hide-in-mobile">
+					
+				<a href="https://example.com/posts/">Posts</a>
+				<a href="https://example.com/about-hugo/">About</a>
+
+				</nav>
+			</div>
+			<div class="hdr-right hdr-icons">
+				<span class="hdr-social hide-in-mobile"><a href="https://twitter.com/" target="_blank" rel="noopener me" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a><a href="https://instagram.com/" target="_blank" rel="noopener me" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg></a><a href="https://github.com/" target="_blank" rel="noopener me" title="Github"><svg xmlns="http://www.w3.org/2000/svg" class="feather" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></span><button id="menu-btn" class="hdr-btn" title="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+			</div>
+		</div>
+	</header>
+	<div id="mobile-menu" class="animated fast">
+		<ul>
+			<li><a href="https://example.com/posts/">Posts</a></li>
+			<li><a href="https://example.com/about-hugo/">About</a></li>
+		</ul>
+	</div>
+
+
+	<main class="site-main section-inner animated fadeIn faster">
+		<article class="thin">
+			<header class="post-header">
+				<div class="post-meta"><span>Jan 1, 0001</span></div>
+				<h1></h1>
+			</header>
+			<div class="content">
+				<h3 id="mysql笔记">MySql笔记<a href="#mysql笔记" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h3>
+<h4 id="基本使用">基本使用<a href="#基本使用" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h4>
+<h5 id="ddl语句">DDL语句<a href="#ddl语句" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+<p><strong>1. 创建database</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">create</span> <span class="k">database</span> <span class="n">test1</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="k">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>2. 查看datebase</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">show</span> <span class="n">databases</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------------------+
+</span><span class="c1"></span><span class="o">|</span> <span class="k">Database</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">information_schema</span> <span class="o">|</span>
+<span class="o">|</span> <span class="k">cluster</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">mysql</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">test</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">test1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------------------+ 
+</span><span class="c1"></span><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>3. 使用database</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="n">use</span> <span class="n">mysql</span>
+<span class="k">Database</span> <span class="n">changed</span>
+</code></pre></div><p><strong>4. 查看数据库所有表</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">show</span> <span class="n">tables</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">---------------------------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Tables_in_mysql</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">---------------------------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">columns_priv</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">db</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">event</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">func</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">general_log</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">help_category</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">help_keyword</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">help_relation</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">help_topic</span> <span class="o">|</span>
+<span class="o">|</span> <span class="k">host</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">plugin</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">proc</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">procs_priv</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">slow_log</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">tables_priv</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">time_zone</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">time_zone_leap_second</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">time_zone_name</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">time_zone_transition</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">time_zone_transition_type</span> <span class="o">|</span>
+<span class="o">|</span> <span class="k">user</span> <span class="o">|</span> <span class="o">+</span><span class="c1">---------------------------+
+</span><span class="c1"></span><span class="mi">21</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>5. 删除数据库</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">drop</span> <span class="k">database</span> <span class="n">test1</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>6. 创建表</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">create</span> <span class="k">table</span> <span class="n">emp</span><span class="p">(</span><span class="n">ename</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span><span class="n">hiredate</span> <span class="nb">date</span><span class="p">,</span><span class="n">sal</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">deptno</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>7. 查看表的定义</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>8. 删除表</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">drop</span> <span class="k">table</span> <span class="n">emp</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>9. 修改表</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">table</span> <span class="n">emp</span> <span class="k">modify</span> <span class="n">ename</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">Records</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Duplicates</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>10. 删除表字段</strong></p>
+<p>将字段age删除</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">age</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+ 5 rows in set (0.00 sec)
+</span><span class="c1"></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">table</span> <span class="n">emp</span> <span class="k">drop</span> <span class="k">column</span> <span class="n">age</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">Records</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Duplicates</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>11. 字段改名</strong></p>
+<p>将age改名为age1, 同时修改字段类型为int(4)</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">age</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">table</span> <span class="n">emp</span> <span class="n">change</span> <span class="n">age</span> <span class="n">age1</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">02</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">Records</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Duplicates</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span>
+		<span class="o">-&gt;</span> <span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">age1</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>12. 修改字段排列顺序</strong></p>
+<p>将新增的字段birth date加在ename之后</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">age</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">table</span> <span class="n">emp</span> <span class="k">add</span> <span class="n">birth</span> <span class="nb">date</span> <span class="k">after</span> <span class="n">ename</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">Records</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Duplicates</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">birth</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">age</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">6</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>修改字段aeg, 将它放在最前面</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">table</span> <span class="n">emp</span> <span class="k">modify</span> <span class="n">age</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">first</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">03</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">Records</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Duplicates</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">age</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">birth</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">6</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>13. 表改名</strong></p>
+<p>将表emp改名为emp1</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">alter</span> <span class="k">table</span> <span class="n">emp</span> <span class="k">rename</span> <span class="n">emp1</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp</span><span class="p">;</span>
+<span class="n">ERROR</span> <span class="mi">1146</span> <span class="p">(</span><span class="mi">42</span><span class="n">S02</span><span class="p">):</span> <span class="k">Table</span> <span class="s1">&#39;sakila.emp&#39;</span> <span class="n">doesn</span><span class="s1">&#39;t exist&#39;</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">desc</span> <span class="n">emp1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">Field</span> <span class="o">|</span> <span class="k">Type</span> <span class="o">|</span> <span class="k">Null</span> <span class="o">|</span> <span class="k">Key</span> <span class="o">|</span> <span class="k">Default</span> <span class="o">|</span> <span class="n">Extra</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">age</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="nb">varchar</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">birth</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="nb">date</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="nb">decimal</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="nb">int</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="n">YES</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+---------------+------+-----+---------+-------+
+</span><span class="c1"></span><span class="mi">6</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><h5 id="dml语句">DML语句<a href="#dml语句" class="anchor" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3"></path><line x1="8" y1="12" x2="16" y2="12"></line></svg></a></h5>
+<p>DML 操作是指对数据库中表记录的操作，主要包括表记录的插入（insert）、更新（update）、删除（delete）和查询（select），是开发人员日常使用最频繁的操作。</p>
+<p><strong>1. 插入记录</strong></p>
+<p>向表 emp 中插入以下记录：ename 为 zzx1，hiredate 为 2000-01-01，sal 为 2000，deptno</p>
+<p>为 1，命令执行如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">emp</span> <span class="p">(</span><span class="n">ename</span><span class="p">,</span><span class="n">hiredate</span><span class="p">,</span><span class="n">sal</span><span class="p">,</span><span class="n">deptno</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;zzx1&#39;</span><span class="p">,</span><span class="s1">&#39;2000-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;2000&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="k">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>也可以不用指定字段名称，但是 values 后面的顺序应该和字段的排列顺序一致：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">emp</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;lisa&#39;</span><span class="p">,</span><span class="s1">&#39;2003-02-01&#39;</span><span class="p">,</span><span class="s1">&#39;3000&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="k">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>对于含可空字段、非空但是含有默认值的字段、自增字段，可以不用在 insert 后的字段列表</p>
+<p>里面出现，values 后面只写对应字段名称的 value，这些没写的字段可以自动设置为 NULL、</p>
+<p>默认值、自增的下一个数字，这样在某些情况下可以大大缩短 SQL 语句的复杂性。</p>
+<p>例如，只对表中的 ename 和 sal 字段显式插入值：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">emp</span> <span class="p">(</span><span class="n">ename</span><span class="p">,</span><span class="n">sal</span><span class="p">)</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;dony&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="k">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>来查看一下实际插入值：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">400</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="k">NULL</span> <span class="o">|</span> <span class="mi">1000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="k">NULL</span> <span class="o">|</span> 
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span></code></pre></div><p>在 MySQL 中，insert 语句还有一个很好的特性，可以一次性插入多条记录，语法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">tablename</span> <span class="p">(</span><span class="n">field1</span><span class="p">,</span> <span class="n">field2</span><span class="p">,</span><span class="err">……</span><span class="n">fieldn</span><span class="p">)</span>
+<span class="k">VALUES</span>
+<span class="p">(</span><span class="n">record1_value1</span><span class="p">,</span> <span class="n">record1_value2</span><span class="p">,</span><span class="err">……</span><span class="n">record1_valuesn</span><span class="p">),</span>
+<span class="p">(</span><span class="n">record2_value1</span><span class="p">,</span> <span class="n">record2_value2</span><span class="p">,</span><span class="err">……</span><span class="n">record2_valuesn</span><span class="p">),</span>
+<span class="err">……</span>
+<span class="p">(</span><span class="n">recordn_value1</span><span class="p">,</span> <span class="n">recordn_value2</span><span class="p">,</span><span class="err">……</span><span class="n">recordn_valuesn</span><span class="p">)</span>
+<span class="p">;</span>
+</code></pre></div><p>可以看出，每条记录之间都用逗号进行了分隔。</p>
+<p>下面的例子中，对表 dept 一次插入两条记录：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">dept</span> <span class="k">values</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;dept5&#39;</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;dept6&#39;</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">2</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">Records</span><span class="p">:</span> <span class="mi">2</span> <span class="n">Duplicates</span><span class="p">:</span> <span class="mi">0</span> <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">fin</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">dept5</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">6</span> <span class="o">|</span> <span class="n">dept6</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>这个特性可以使得 MySQL 在插入大量记录时，节省很多的网络开销，大大提高插入效率。</p>
+<p><strong>2. 更新记录</strong></p>
+<p>对于表里的记录值，可以通过 update 命令进行更改，语法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">tablename</span> <span class="k">SET</span> <span class="n">field1</span><span class="o">=</span><span class="n">value1</span><span class="err">，</span><span class="n">field2</span><span class="p">.</span><span class="o">=</span><span class="n">value2</span><span class="err">，……</span><span class="n">fieldn</span><span class="o">=</span><span class="n">valuen</span> <span class="p">[</span><span class="k">WHERE</span> <span class="n">CONDITION</span><span class="p">]</span>
+</code></pre></div><p>例如，将表 emp 中 ename 为“lisa”的薪水（sal）从 3000 更改为 4000：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">update</span> <span class="n">emp</span> <span class="k">set</span> <span class="n">sal</span><span class="o">=</span><span class="mi">4000</span> <span class="k">where</span> <span class="n">ename</span><span class="o">=</span><span class="s1">&#39;lisa&#39;</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="k">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="k">Rows</span> <span class="n">matched</span><span class="p">:</span> <span class="mi">1</span> <span class="n">Changed</span><span class="p">:</span> <span class="mi">1</span> <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+</code></pre></div><p>在 MySQL 中，update 命令可以同时更新多个表中数据，语法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">UPDATE</span> <span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="err">…</span><span class="n">tn</span> <span class="k">set</span> <span class="n">t1</span><span class="p">.</span><span class="n">field1</span><span class="o">=</span><span class="n">expr1</span><span class="p">,</span><span class="n">tn</span><span class="p">.</span><span class="n">fieldn</span><span class="o">=</span><span class="n">exprn</span> <span class="p">[</span><span class="k">WHERE</span> <span class="n">CONDITION</span><span class="p">]</span>
+</code></pre></div><p>在下例中，同时更新表 emp 中的字段 sal 和表 dept 中的字段 deptname：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">200</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">fin</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">update</span> <span class="n">emp</span> <span class="n">a</span><span class="p">,</span><span class="n">dept</span> <span class="n">b</span> <span class="k">set</span> <span class="n">a</span><span class="p">.</span><span class="n">sal</span><span class="o">=</span><span class="n">a</span><span class="p">.</span><span class="n">sal</span><span class="o">*</span><span class="n">b</span><span class="p">.</span><span class="n">deptno</span><span class="p">,</span><span class="n">b</span><span class="p">.</span><span class="n">deptname</span><span class="o">=</span><span class="n">a</span><span class="p">.</span><span class="n">ename</span> <span class="k">where</span> 
+<span class="n">a</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">3</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span> <span class="n">sec</span><span class="p">)</span>
+<span class="k">Rows</span> <span class="n">matched</span><span class="p">:</span> <span class="mi">5</span> <span class="n">Changed</span><span class="p">:</span> <span class="mi">3</span> <span class="n">Warnings</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">400</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">01</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">fin</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p><strong>3. 删除记录</strong></p>
+<p>如果记录不再需要，可以用 delete 命令进行删除，语法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">tablename</span> <span class="p">[</span><span class="k">WHERE</span> <span class="n">CONDITION</span><span class="p">]</span>
+</code></pre></div><p>例如，在 emp 中将 ename 为‘dony’的记录全部删除，命令如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">delete</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">ename</span><span class="o">=</span><span class="s1">&#39;dony&#39;</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="k">row</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>在 MySQL 中可以一次删除多个表的数据，语法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">DELETE</span> <span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="err">…</span><span class="n">tn</span> <span class="k">FROM</span> <span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="err">…</span><span class="n">tn</span> <span class="p">[</span><span class="k">WHERE</span> <span class="n">CONDITION</span><span class="p">]</span>
+</code></pre></div><p>如果 from 后面的表名用别名，则 delete 后面的也要用相应的别名，否则会提示语法错误。</p>
+<p>在下例中，将表 emp 和 dept 中 deptno 为 3 的记录同时都删除：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">200</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">300</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span> 
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">hr</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">fin</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">delete</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="k">from</span> <span class="n">emp</span> <span class="n">a</span><span class="p">,</span><span class="n">dept</span> <span class="n">b</span> <span class="k">where</span> <span class="n">a</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">b</span><span class="p">.</span><span class="n">deptno</span> <span class="k">and</span> <span class="n">a</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">2</span> <span class="k">rows</span> <span class="n">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">04</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> 
+<span class="n">mysql</span><span class="o">&gt;</span> 
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">200</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">fin</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><pre><code>注意：不管是单表还是多表，不加 where 条件将会把表的所有记录删除，所以操作时一定要小心。
+</code></pre><p><strong>4. 查询记录</strong></p>
+<p>数据插入到数据库中后，就可以用 SELECT 命令进行各种各样的查询，使得输出的结果符合</p>
+<p>我们的要求。由于 SELECT 的语法很复杂，所有这里只介绍最基本的语法：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tablename</span> <span class="p">[</span><span class="k">WHERE</span> <span class="n">CONDITION</span><span class="p">]</span>
+</code></pre></div><p>查询最简单的方式是将记录全部选出，在下面的例子中，将表 emp 中的记录全部查询出来：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> 
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>其中“*”表示要将所有的记录都选出来，也可以用逗号分割的所有字段来代替，例如，以</p>
+<p>下两个查询是等价的：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">ename</span><span class="p">,</span><span class="n">hiredate</span><span class="p">,</span><span class="n">sal</span><span class="p">,</span><span class="n">deptno</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>“*”的好处是当需要查询所有字段信息时候，查询语句很简单，但是要只查询部分字段的</p>
+<p>时候，必须要将字段一个一个列出来。</p>
+<p>上例中已经介绍了查询全部记录的语法，但是在实际应用中，用户还会遇到各种各样的查询</p>
+<p>要求，下面将分别介绍。</p>
+<p>（1）查询不重复的记录。</p>
+<p>有时需要将表中的记录去掉重复后显示出来，可以用 distinct 关键字来实现：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">ename</span><span class="p">,</span><span class="n">hiredate</span><span class="p">,</span><span class="n">sal</span><span class="p">,</span><span class="n">deptno</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="k">distinct</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="mi">2</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>（2）条件查询。</p>
+<p>在很多情况下，用户并不需要查询所有的记录，而只是需要根据限定条件来查询一部分数据，</p>
+<p>用 where 关键字可以来实现这样的操作。</p>
+<p>例如，需要查询所有 deptno 为 1 的记录：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">2</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>结果集中将符合条件的记录列出来。上面的例子中，where 后面的条件是一个字段的‘=’</p>
+<p>比较，除了‘=’外，还可以使用&gt;、&lt;、&gt;=、&lt;=、!=等比较运算符；多个条件之间还可以使</p>
+<p>用 or、and 等逻辑运算符进行多条件联合查询，运算符会在以后章节中详细讲解。</p>
+<p>以下是一个使用多字段条件查询的例子：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span><span class="o">=</span><span class="mi">1</span> <span class="k">and</span> <span class="n">sal</span><span class="o">&lt;</span><span class="mi">3000</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">-------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">-------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>（3）排序和限制。</p>
+<p>我们经常会有这样的需求，取出按照某个字段进行排序后的记录结果集，这就用到了数据库</p>
+<p>的排序操作，用关键字 ORDER BY 来实现，语法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tablename</span> <span class="p">[</span><span class="k">WHERE</span> <span class="n">CONDITION</span><span class="p">]</span> <span class="p">[</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="n">field1</span> <span class="p">[</span><span class="k">DESC</span><span class="o">|</span><span class="k">ASC</span><span class="p">]</span> <span class="err">，</span> <span class="n">field2</span> 
+<span class="p">[</span><span class="k">DESC</span><span class="o">|</span><span class="k">ASC</span><span class="p">]</span><span class="err">，……</span><span class="n">fieldn</span> <span class="p">[</span><span class="k">DESC</span><span class="o">|</span><span class="k">ASC</span><span class="p">]]</span>
+</code></pre></div><p>其中，DESC 和 ASC 是排序顺序关键字，DESC 表示按照字段进行降序排列，ASC 则表示升序</p>
+<p>排列，如果不写此关键字默认是升序排列。ORDER BY 后面可以跟多个不同的排序字段，并</p>
+<p>且每个排序字段可以有不同的排序顺序。</p>
+<p>例如，把 emp 表中的记录按照工资高低进行显示：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">order</span> <span class="k">by</span> <span class="n">sal</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">3000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>如果排序字段的值一样，则值相同的字段按照第二个排序字段进行排序，以此类推。如果只</p>
+<p>有一个排序字段，则这些字段相同的记录将会无序排列。</p>
+<p>例如，把 emp 表中的记录按照部门编号 deptno 字段排序：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">order</span> <span class="k">by</span> <span class="n">deptno</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>对于 deptno 相同的前两条记录，如果要按照工资由高到低排序，可以使用以下命令：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">order</span> <span class="k">by</span> <span class="n">deptno</span><span class="p">,</span><span class="n">sal</span> <span class="k">desc</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><pre><code>mySQL里desc和asc的意思
+desc是descend 降序意思
+asc 是ascend 升序意思
+</code></pre><p>对于排序后的记录，如果希望只显示一部分，而不是全部，这时，就可以使用 LIMIT 关键字</p>
+<p>来实现，LIMIT 的语法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="err">……</span><span class="p">[</span><span class="k">LIMIT</span> <span class="n">offset_start</span><span class="p">,</span><span class="k">row_count</span><span class="p">]</span>
+</code></pre></div><p>其中 offset_start 表示记录的起始偏移量，row_count 表示显示的行数。</p>
+<p>在默认情况下，起始偏移量为 0，只需要写记录行数就可以，这时候，显示的实际就是前 n</p>
+<p>条记录，看下面例子：</p>
+<p>例如，显示 emp 表中按照 sal 排序后的前 3 条记录：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">order</span> <span class="k">by</span> <span class="n">sal</span> <span class="k">limit</span> <span class="mi">3</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>如果要显示 emp 表中按照 sal 排序后从第二条记录开始，显示 3 条记录：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">order</span> <span class="k">by</span> <span class="n">sal</span> <span class="k">limit</span> <span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>limit 经常和 order by 一起配合使用来进行记录的分页显示。</p>
+<pre><code>注意：limit 属于 MySQL 扩展 SQL92 后的语法，在其他数据库上并不能通用。
+</code></pre><p>（4）聚合。</p>
+<p>很多情况下，我们需要进行一些汇总操作，比如统计整个公司的人数或者统计每个部门的人数，这个时就要用到 SQL 的聚合操作。</p>
+<p>聚合操作的语法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-mysql" data-lang="mysql"><span class="k">SELECT</span> <span class="p">[</span><span class="n">field1</span><span class="p">,</span><span class="n">field2</span><span class="p">,</span><span class="err">……</span><span class="n">fieldn</span><span class="p">]</span> <span class="n">fun_name</span> 
+<span class="k">FROM</span> <span class="n">tablename</span>
+<span class="p">[</span><span class="k">WHERE</span> <span class="n">where_contition</span><span class="p">]</span>
+<span class="p">[</span><span class="k">GROUP</span> <span class="k">BY</span> <span class="n">field1</span><span class="p">,</span><span class="n">field2</span><span class="p">,</span><span class="err">……</span><span class="n">fieldn</span>
+<span class="p">[</span><span class="k">WITH</span> <span class="n">ROLLUP</span><span class="p">]]</span>
+<span class="p">[</span><span class="k">HAVING</span> <span class="n">where_contition</span><span class="p">]</span>
+</code></pre></div><p>对其参数进行以下说明。</p>
+<p> fun_name 表示要做的聚合操作，也就是聚合函数，常用的有 sum（求和）、count(*)（记</p>
+<p>录数）、max（最大值）、min（最小值）。</p>
+<p> GROUP BY 关键字表示要进行分类聚合的字段，比如要按照部门分类统计员工数量，部门</p>
+<p>就应该写在 group by 后面。</p>
+<p> WITH ROLLUP 是可选语法，表明是否对分类聚合后的结果进行再汇总。</p>
+<p> HAVING 关键字表示对分类后的结果再进行条件的过滤。</p>
+<pre><code>注意：having 和 where 的区别在于 having 是对聚合后的结果进行条件的过滤，而 where 是在聚
+合前就对记录进行过滤，如果逻辑允许，我们尽可能用 where 先过滤记录，这样因为结果
+集减小，将对聚合的效率大大提高，最后再根据逻辑看是否用 having 进行再过滤。
+</code></pre><p>例如，要 emp 表中统计公司的总人数：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span> 
+<span class="o">+</span><span class="c1">----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+
+</span><span class="c1"></span><span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>在此基础上，要统计各个部门的人数：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">deptno</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">deptno</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">4</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>更细一些，既要统计各部门人数，又要统计总人数：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">deptno</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">deptno</span> <span class="k">with</span> <span class="k">rollup</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">4</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="k">NULL</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>统计人数大于 1 人的部门：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">deptno</span><span class="p">,</span><span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">group</span> <span class="k">by</span> <span class="n">deptno</span> <span class="k">having</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="k">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>最后统计公司所有员工的薪水总额、最高和最低薪水：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">400</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="k">sum</span><span class="p">(</span><span class="n">sal</span><span class="p">),</span><span class="k">max</span><span class="p">(</span><span class="n">sal</span><span class="p">),</span><span class="k">min</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">----------+----------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="k">sum</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="o">|</span> <span class="k">max</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="o">|</span> <span class="k">min</span><span class="p">(</span><span class="n">sal</span><span class="p">)</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+----------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">2600</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">----------+----------+----------+
+</span><span class="c1"></span><span class="mi">1</span> <span class="k">row</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>（5）表连接。</p>
+<p>当需要同时显示多个表中的字段时，就可以用表连接来实现这样的功能。</p>
+<p>从大类上分，表连接分为内连接和外连接，它们之间的最主要区别是內连接仅选出两张表中</p>
+<p>互相匹配的记录，而外连接会选出其他不匹配的记录。我们最常用的是内连接。</p>
+<p>例如，查询出所有雇员的名字和所在部门名称，因为雇员名称和部门分别存放在表 emp 和</p>
+<p>dept 中，因此，需要使用表连接来进行查询：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">hr</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">ename</span><span class="p">,</span><span class="n">deptname</span> <span class="k">from</span> <span class="n">emp</span><span class="p">,</span><span class="n">dept</span> <span class="k">where</span> <span class="n">emp</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">dept</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="n">hr</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>外连接有分为左连接和右连接，具体定义如下。</p>
+<p>​	左连接：包含所有的左边表中的记录甚至是右边表中没有和它匹配的记录</p>
+<p>​	右连接：包含所有的右边表中的记录甚至是左边表中没有和它匹配的记录</p>
+<p>例如，查询 emp 中所有用户名和所在部门名称：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">hr</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">ename</span><span class="p">,</span><span class="n">deptname</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">left</span> <span class="k">join</span> <span class="n">dept</span> <span class="k">on</span> <span class="n">emp</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">dept</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="n">hr</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>（6）子查询。</p>
+<p>某些情况下，当我们查询的时候，需要的条件是另外一个 select 语句的结果，这个时候，就</p>
+<p>要用到子查询。用于子查询的关键字主要包括 in、not in、=、!=、exists、not exists 等。</p>
+<p>例如，从 emp 表中查询出所有部门在 dept 表中的所有记录：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">hr</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">fin</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span> <span class="k">in</span><span class="p">(</span><span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">dept</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>如果子查询记录数唯一，还可以用=代替 in：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span> <span class="o">=</span> <span class="p">(</span><span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">dept</span><span class="p">);</span>
+<span class="n">ERROR</span> <span class="mi">1242</span> <span class="p">(</span><span class="mi">21000</span><span class="p">):</span> <span class="n">Subquery</span> <span class="k">returns</span> <span class="k">more</span> <span class="k">than</span> <span class="mi">1</span> <span class="k">row</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span> <span class="o">=</span> <span class="p">(</span><span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">dept</span> <span class="k">limit</span> <span class="mi">1</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">2</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>某些情况下，子查询可以转化为表连接，例如：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="k">where</span> <span class="n">deptno</span> <span class="k">in</span><span class="p">(</span><span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">dept</span><span class="p">);</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="err">转换为表连接后：</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">emp</span><span class="p">.</span><span class="o">*</span> <span class="k">from</span> <span class="n">emp</span> <span class="p">,</span><span class="n">dept</span> <span class="k">where</span> <span class="n">emp</span><span class="p">.</span><span class="n">deptno</span><span class="o">=</span><span class="n">dept</span><span class="p">.</span><span class="n">deptno</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">5000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bzshen</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">4000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><pre><code>注意：子查询和表连接之间的转换主要应用在两个方面： 
+ MySQL 4.1 以前的版本不支持子查询，需要用表连接来实现子查询的功能
+ 表连接在很多情况下用于优化子查询
+</code></pre><p>（7）记录联合。</p>
+<p>我们经常会碰到这样的应用，将两个表的数据按照一定的查询条件查询出来后，将结果合并</p>
+<p>到一起显示出来，这个时候，就需要用 union 和 union all 关键字来实现这样的功能，具体语</p>
+<p>法如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">t1</span>
+<span class="k">UNION</span><span class="o">|</span><span class="k">UNION</span> <span class="k">ALL</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">t2</span>
+<span class="err">……</span>
+<span class="k">UNION</span><span class="o">|</span><span class="k">UNION</span> <span class="k">ALL</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">tn</span><span class="p">;</span>
+</code></pre></div><p>UNION 和 UNION ALL 的主要区别是 UNION ALL 是把结果集直接合并在一起，而 UNION 是将</p>
+<p>UNION ALL 后的结果进行一次 DISTINCT，去除重复记录后的结果。</p>
+<p>来看下面例子，将 emp 和 dept 表中的部门编号的集合显示出来：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">emp</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">ename</span> <span class="o">|</span> <span class="n">hiredate</span> <span class="o">|</span> <span class="n">sal</span> <span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">zzx</span> <span class="o">|</span> <span class="mi">2000</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">lisa</span> <span class="o">|</span> <span class="mi">2003</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">01</span> <span class="o">|</span> <span class="mi">400</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">bjguan</span> <span class="o">|</span> <span class="mi">2004</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">02</span> <span class="o">|</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="n">dony</span> <span class="o">|</span> <span class="mi">2005</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">05</span> <span class="o">|</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+------------+---------+--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span> <span class="n">deptname</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">tech</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">sale</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">fin</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+----------+
+</span><span class="c1"></span><span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">emp</span> 
+<span class="o">-&gt;</span> <span class="k">union</span> <span class="k">all</span>
+<span class="o">-&gt;</span> <span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="mi">7</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div><p>如果希望将结果去掉重复记录后显示：</p>
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">emp</span> 
+		<span class="o">-&gt;</span> <span class="k">union</span>
+		<span class="o">-&gt;</span> <span class="k">select</span> <span class="n">deptno</span> <span class="k">from</span> <span class="n">dept</span><span class="p">;</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="n">deptno</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="o">|</span> <span class="mi">1</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">2</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">4</span> <span class="o">|</span>
+<span class="o">|</span> <span class="mi">5</span> <span class="o">|</span>
+<span class="o">+</span><span class="c1">--------+
+</span><span class="c1"></span><span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+</code></pre></div>
+			</div>
+			<hr class="post-end">
+			<footer class="post-info">
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>3872 Words</p>
+				<p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>0001-01-01 08:05 &#43;0805</p>
+			</footer>
+		</article>
+		<div class="post-nav thin">
+			<a class="next-post" href="https://example.com/posts/message-queue/">
+				<span class="post-nav-label"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>&nbsp;Newer</span><br><span></span>
+			</a>
+			<a class="prev-post" href="https://example.com/posts/note/">
+				<span class="post-nav-label">Older&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></span><br><span></span>
+			</a>
+		</div>
+		<div id="comments" class="thin">
+</div>
+	</main>
+
+	<footer id="site-footer" class="section-inner thin animated fadeIn faster">
+		<p>&copy; 2021 <a href="https://example.com">John Doe</a> &#183; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></p>
+		<p>
+			Made with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> &#183; Theme <a href="https://github.com/Track3/hermit" target="_blank" rel="noopener">Hermit</a> &#183; <a href="https://example.com/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>
+		</p>
+	</footer>
+
+
+
+	<script src="https://example.com/js/bundle.min.4a9a0ac3d2217822c7865b4161e6c2a71de1d70492264337755427898dd718f6.js" integrity="sha256-SpoKw9IheCLHhltBYebCpx3h1wSSJkM3dVQniY3XGPY=" crossorigin="anonymous"></script>
+	
+
+</body>
+
+</html>
