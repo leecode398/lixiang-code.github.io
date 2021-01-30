@@ -5,13 +5,13 @@
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noodp"/>
+  <meta name="author" content="Covey.Liu">
   
   
   
-  
-  <link rel="prev" href="https://lixiang-code.github.io/creating-a-new-theme/" />
-  <link rel="next" href="https://lixiang-code.github.io/vim/" />
-  <link rel="canonical" href="https://lixiang-code.github.io/post-with-featured-image/" />
+  <link rel="prev" href="https://example.com/creating-a-new-theme/" />
+  <link rel="next" href="https://example.com/vim/" />
+  <link rel="canonical" href="https://example.com/post-with-featured-image/" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -22,10 +22,10 @@
   <title>
        
        
-           Post With Featured Image | lee blog
+           Post With Featured Image | LeaveIt
        
   </title>
-  <meta name="title" content="Post With Featured Image | lee blog">
+  <meta name="title" content="Post With Featured Image | LeaveIt">
     
   
   <link rel="stylesheet" href="/font/iconfont.css">
@@ -41,24 +41,24 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https:\/\/lixiang-code.github.io"
+         "@id": "https:\/\/example.com"
     },
     "articleSection" : "",
     "name" : "Post With Featured Image",
     "headline" : "Post With Featured Image",
-    "description" : "Just define the image URL in the content’s front matter, the featured image will be displayed as the background.\nFor example:\n---images:- https:\/\/picsum.photos\/1024\/768\/?random---This is an array, you can set multiple urls, only the first url will be used. These images is also used in Twitter Cards and the Open Graph metadata.",
+    "description" : "Just define the image URL in the content’s front matter, the featured image will be displayed as the background.\nFor example:\n--- images: - https:\/\/picsum.photos\/1024\/768\/?random --- This is an array, you can set multiple urls, only the first url will be used. These images is also used in Twitter Cards and the Open Graph metadata.",
     "inLanguage" : "en-us",
-    "author" : "",
-    "creator" : "",
-    "publisher": "",
-    "accountablePerson" : "",
-    "copyrightHolder" : "",
+    "author" : "Covey.Liu",
+    "creator" : "Covey.Liu",
+    "publisher": "Covey.Liu",
+    "accountablePerson" : "Covey.Liu",
+    "copyrightHolder" : "Covey.Liu",
     "copyrightYear" : "2018",
     "datePublished": "2018-10-01 16:15:09 \x2b0800 CST",
     "dateModified" : "2018-10-01 16:15:09 \x2b0800 CST",
-    "url" : "https:\/\/lixiang-code.github.io\/post-with-featured-image\/",
-    "wordCount" : "51",
-    "keywords" : [ "Demo","Image", "lee blog"]
+    "url" : "https:\/\/example.com\/post-with-featured-image\/",
+    "wordCount" : "55",
+    "keywords" : [ "Demo","Image", "LeaveIt"]
 }
 </script>
 
@@ -72,14 +72,18 @@
         <nav class="navbar">
     <div class="container">
         <div class="navbar-header header-logo">
-        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lixiang-code.github.io">lee blog</a>
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">LeaveIt</a>
         </div>
         <div class="menu navbar-right">
                 
                 
-                <a class="menu-item" href="posts/" title="">Posts</a>
+                <a class="menu-item" href="/posts/" title="">Blog</a>
                 
-                <a class="menu-item" href="about-hugo/" title="">About</a>
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
                 
         </div>
     </div>
@@ -87,7 +91,7 @@
 <nav class="navbar-mobile" id="nav-mobile" style="display: none">
      <div class="container">
         <div class="navbar-header">
-            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lixiang-code.github.io">lee blog</a></div>
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://example.com">LeaveIt</a></div>
             <div class="menu-toggle">
                 <span></span><span></span><span></span>
             </div>
@@ -96,9 +100,13 @@
           <div class="menu" id="mobile-menu">
                 
                 
-                <a class="menu-item" href="posts/" title="">Posts</a>
+                <a class="menu-item" href="/posts/" title="">Blog</a>
                 
-                <a class="menu-item" href="about-hugo/" title="">About</a>
+                <a class="menu-item" href="/categories/" title="">Categories</a>
+                
+                <a class="menu-item" href="/tags/" title="">Tags</a>
+                
+                <a class="menu-item" href="/about/" title="">About</a>
                 
         </div>
     </div>
@@ -111,11 +119,11 @@
     <div class="post-content">
         <p>Just define the image URL in the content’s front matter, the featured image will be displayed as the background.</p>
 <p>For example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w">
-</span><span class="w"></span><span class="k">images</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span>- https<span class="p">:</span>//picsum.photos/<span class="m">1024</span>/<span class="m">768</span>/<span class="p">?</span>random<span class="w">
-</span><span class="w"></span>---<span class="w">
-</span></code></pre></div><p>This is an array, you can set multiple urls, only the first url will be used. These images is also used in <a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html">Twitter Cards</a> and the <a href="http://ogp.me/">Open Graph</a> metadata.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">---
+<span style="color:#66d9ef">images</span>:
+  - https://picsum.photos/<span style="color:#ae81ff">1024</span>/<span style="color:#ae81ff">768</span>/?random
+---
+</code></pre></div><p>This is an array, you can set multiple urls, only the first url will be used. These images is also used in <a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started.html">Twitter Cards</a> and the <a href="http://ogp.me/">Open Graph</a> metadata.</p>
 
     </div>
 </div>
@@ -126,9 +134,13 @@
     <div class="copyright">
         &copy;
         
+        <span itemprop="copyrightYear">2011 - 2021</span>
+        
         <span class="with-love">
     	 <i class="iconfont icon-love"></i> 
          </span>
+         
+            <span class="author" itemprop="copyrightHolder"><a href="https://example.com">Covey.Liu</a> | </span> 
          
 
          
