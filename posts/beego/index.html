@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  <link rel="prev" href="https://lixiang-code.github.io/posts/dbgsystem/" />
+  <link rel="next" href="https://lixiang-code.github.io/posts/hugoisforlovers/" />
+  <link rel="canonical" href="https://lixiang-code.github.io/posts/beego/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+            | lee blog
+       
+  </title>
+  <meta name="title" content=" | lee blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/lixiang-code.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "",
+    "headline" : "",
+    "description" : "beego架构 积木式集合\ncache 缓存模块\nconfig 配置模块\ncontext 上下文模块\nlogs 日志模块\norm\t和数据库操作相关模块\nsession 会话\nhttplib 网络相关模块\nbeego执行逻辑 页面(V) \x26mdash; 控制(C) \x26mdash; 数据库(M)\nbeego项目结构 |_____config | |---app.config |_____controllers(C) | |---admin | |---default.go |_____main.go |_____modles(M) | |---modles.go |_____static | |---css | |---ico | |---img | |---js |_____views(V) | |---admin | |---index.tpl config 配置文件\ncontrollers 控制ceng\nmain.go 主入口\nmodles 和数据库相关\nstatics 静态文件(html, css, js)\nviews 页面展示\n快速开发 1.环境安装\n2.安装bee工具\nbee命令 new 基于web开发\napi 基于手机接口开发",
+    "inLanguage" : "en-us",
+    "author" : "",
+    "creator" : "",
+    "publisher": "",
+    "accountablePerson" : "",
+    "copyrightHolder" : "",
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/lixiang-code.github.io\/posts\/beego\/",
+    "wordCount" : "546",
+    "keywords" : [  "lee blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lixiang-code.github.io">lee blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="posts/" title="">Posts</a>
+                
+                <a class="menu-item" href="about-hugo/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lixiang-code.github.io">lee blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="posts/" title="">Posts</a>
+                
+                <a class="menu-item" href="about-hugo/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"></h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://lixiang-code.github.io" rel="author"></a> with ♥ 
+                <span class="post-time">
+                on <time datetime=0001-01-01 itemprop="datePublished">January 1, 0001</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h4 id="beego架构">beego架构</h4>
+<p>积木式集合</p>
+<p>cache 缓存模块</p>
+<p>config 配置模块</p>
+<p>context 上下文模块</p>
+<p>logs 日志模块</p>
+<p>orm	和数据库操作相关模块</p>
+<p>session 会话</p>
+<p>httplib 网络相关模块</p>
+<h4 id="beego执行逻辑">beego执行逻辑</h4>
+<p>页面(V) &mdash; 控制(C) &mdash; 数据库(M)</p>
+<h4 id="beego项目结构">beego项目结构</h4>
+<pre><code>|_____config
+|   |---app.config
+|_____controllers(C)
+|   |---admin
+|   |---default.go
+|_____main.go
+|_____modles(M)
+|   |---modles.go
+|_____static
+|   |---css
+|   |---ico
+|   |---img
+|   |---js
+|_____views(V)
+|   |---admin
+|   |---index.tpl
+</code></pre><p>config 配置文件</p>
+<p>controllers 控制ceng</p>
+<p>main.go 主入口</p>
+<p>modles 和数据库相关</p>
+<p>statics 静态文件(html, css, js)</p>
+<p>views 页面展示</p>
+<h4 id="快速开发">快速开发</h4>
+<p>1.环境安装</p>
+<p>2.安装bee工具</p>
+<h4 id="bee命令">bee命令</h4>
+<p>new  基于web开发</p>
+<p>api  基于手机接口开发</p>
+<p>run  运行</p>
+<pre><code>new命令
+.
+├── conf
+│   └── app.conf
+├── controllers
+│   └── default.go
+├── main.go
+├── models
+├── routers
+│   └── router.go
+├── static
+│   ├── css
+│   ├── img
+│   └── js
+│       └── reload.min.js
+├── tests
+│   └── default_test.go
+└── views
+    └── index.tpl
+</code></pre><pre><code>api命令
+.
+├── conf
+│   └── app.conf
+├── controllers
+│   ├── object.go
+│   └── user.go
+├── main.go
+├── models
+│   ├── object.go
+│   └── user.go
+├── routers
+│   └── router.go
+└── tests
+    └── default_test.go
+</code></pre><pre><code>run命令
+bee run (在项目根目录去执行)
+http://172.0.0.1:8080/
+</code></pre><h4 id="配置文件">配置文件</h4>
+<h5 id="1系统配置">1.系统配置</h5>
+<pre><code>appname = myweb
+httpport = 8080
+runmode = dev prod test
+</code></pre><h5 id="2应用配置">2.应用配置</h5>
+<p>配置数据库</p>
+<pre><code>动态配置:
+runmode
+[dev]
+httpport = 8080
+[test]
+httpport = 8081
+[prod]
+httpport = 8082
+</code></pre><h4 id="路径操作">路径操作</h4>
+<h5 id="1固定路由">1.固定路由</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">MainController</span><span class="p">{})</span>
+<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/admin&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">UserController</span><span class="p">{})</span>
+<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/admin/index&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">ArticleController</span><span class="p">{})</span>
+<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/admin/addpkg&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">AddController</span><span class="p">{})</span>
+</code></pre></div><h5 id="2基础路由">2.基础路由</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">基本Get路由</span>
+<span class="nx">beego</span><span class="p">.</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span><span class="kd">func</span><span class="p">(</span><span class="nx">ctx</span> <span class="o">*</span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">){</span>
+	<span class="nx">ctx</span><span class="p">.</span><span class="nx">Output</span><span class="p">.</span><span class="nf">Body</span><span class="p">([]</span><span class="kt">byte</span> <span class="p">(</span><span class="s">&#34;hello world&#34;</span><span class="p">))</span>
+<span class="p">})</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">基本Post路由</span>
+<span class="nx">beego</span><span class="p">.</span><span class="nf">Post</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span><span class="kd">func</span><span class="p">(</span><span class="nx">ctx</span> <span class="o">*</span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">){</span>
+	<span class="nx">ctx</span><span class="p">.</span><span class="nx">Output</span><span class="p">.</span><span class="nf">Body</span><span class="p">([]</span><span class="kt">byte</span> <span class="p">(</span><span class="s">&#34;hello world&#34;</span><span class="p">))</span>
+<span class="p">})</span>
+</code></pre></div><h5 id="3自定义方法及restful规则">3.自定义方法及RESTful规则</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">IndexController</span><span class="p">{},</span> <span class="s">&#34;*:Index&#34;</span><span class="p">)</span>
+<span class="o">*</span><span class="nx">post</span> <span class="nx">get</span> <span class="nx">put</span> <span class="nx">delete</span>
+<span class="mf">127.0.0.1</span><span class="p">:</span><span class="mi">8080</span><span class="o">/</span>  <span class="p">(</span><span class="nx">post</span> <span class="nx">get</span> <span class="nx">put</span> <span class="nx">delete</span><span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">MainController</span><span class="p">{},</span> <span class="s">&#34;post:Get&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><h4 id="操作">操作</h4>
+<h5 id="1控制器两个方法">1.控制器两个方法</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">MainController</span><span class="p">)</span> <span class="nf">Get</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">Data</span><span class="p">[</span><span class="s">&#34;Website&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;beego.me&#34;</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">Data</span><span class="p">[</span><span class="s">&#34;Email&#34;</span><span class="p">]</span> <span class="p">=</span> <span class="s">&#34;astaxie@gmail.com&#34;</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">TplName</span> <span class="p">=</span> <span class="s">&#34;myindex.tpl&#34;</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">MainController</span><span class="p">)</span> <span class="nf">Test</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">Ctx</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;this is method post!&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><h5 id="2路由配置">2.路由配置</h5>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">MainController</span><span class="p">{},</span> <span class="s">&#34;post:Get&#34;</span><span class="p">,</span> <span class="s">&#34;post:Test&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><h5 id="3curl测试">3.curl测试</h5>
+<pre><code>curl -d 'id=1' '127.0.0.1:8080'
+</code></pre><h5 id="案例">案例</h5>
+<h6 id="1写控制器">1.写控制器</h6>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">controllers</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;github.com/astaxie/beego&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">TestController</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nx">Controller</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">TestController</span><span class="p">)</span> <span class="nf">Get</span><span class="p">()</span>  <span class="p">{</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">Ctx</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;beego controller&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><h6 id="写路由">写路由</h6>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">MainController</span><span class="p">{},</span> <span class="s">&#34;post:Get&#34;</span><span class="p">,</span> <span class="s">&#34;post:Test&#34;</span><span class="p">)</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/test&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">MainController</span><span class="p">{},</span> <span class="s">&#34;post:Get&#34;</span><span class="p">,</span> <span class="s">&#34;post:Test&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div><h6 id="3开启">3.开启</h6>
+<pre><code>bee run
+</code></pre><h6 id="4测试">4.测试</h6>
+<pre><code>curl去请求
+post:
+curl -d 'id=1' '127.0.0.1:8080/test'
+get:
+curl 127.0.0.1:8080/test'
+</code></pre><h4 id="请求参数">请求参数</h4>
+<p>http://192.168.0.12/?id=xxx&amp;name=xxxx</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nf">GetString</span><span class="p">(</span><span class="nx">key</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">string</span>
+<span class="nf">GetStrings</span><span class="p">(</span><span class="nx">key</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span>
+<span class="nf">GetInt</span><span class="p">(</span><span class="nx">key</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">int64</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="nf">GetBool</span><span class="p">(</span><span class="nx">key</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">bool</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="nf">GetFloat</span><span class="p">(</span><span class="nx">key</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="kt">float64</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+
+<span class="nx">this</span><span class="p">.</span><span class="nf">Input</span><span class="p">().</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">)</span>
+</code></pre></div><h5 id="案例-1">案例</h5>
+<h6 id="1控制器获取参数">1.控制器获取参数</h6>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">controllers</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;github.com/astaxie/beego&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">TestArgController</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nx">Controller</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">TestArgController</span><span class="p">)</span> <span class="nf">Get</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">id</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">GetString</span><span class="p">(</span><span class="s">&#34;id&#34;</span><span class="p">)</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">Ctx</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span>
+
+	<span class="nx">name</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">Input</span><span class="p">().</span><span class="nf">Get</span><span class="p">(</span><span class="s">&#34;name&#34;</span><span class="p">)</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">Ctx</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div><h6 id="2写路由">2.写路由</h6>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/test/arg&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">TestArgController</span><span class="p">{},</span> <span class="s">&#34;get:Get;post:Post&#34;</span><span class="p">)</span>
+</code></pre></div><h6 id="3访问">3.访问</h6>
+<p>http://localhost:8080//test/arg?id=10&amp;name=xiang</p>
+<h5 id="获取结构体">获取结构体</h5>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">form</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;user&#34;</span> <span class="na">action</span><span class="o">=</span><span class="s">&#34;http://127.0.0.1:8080/test/arg&#34;</span> <span class="na">method</span><span class="o">=</span><span class="s">&#34;post&#34;</span><span class="p">&gt;</span>
+            名字: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;username&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="p">/&gt;</span>
+            年龄: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;age&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="p">/&gt;</span>
+            邮箱: <span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&#34;email&#34;</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text&#34;</span> <span class="p">/&gt;</span>
+            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;submit&#34;</span> <span class="na">value</span><span class="o">=</span><span class="s">&#34;提交&#34;</span> <span class="p">/&gt;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">controllers</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;github.com/astaxie/beego&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">User</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">Uid</span>      <span class="kt">int</span>    <span class="s">`form:&#34;-&#34;`</span>
+	<span class="nx">Username</span> <span class="kt">string</span> <span class="s">`form:&#34;username&#34;`</span>
+	<span class="nx">Age</span>      <span class="kt">string</span> <span class="s">`form:&#34;age&#34;`</span>
+	<span class="nx">Email</span>    <span class="kt">string</span> <span class="s">`form:&#34;email&#34;`</span>
+<span class="p">}</span>
+<span class="kd">type</span> <span class="nx">TestArgController</span> <span class="kd">struct</span> <span class="p">{</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nx">Controller</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">TestArgController</span><span class="p">)</span> <span class="nf">Get</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">TplName</span> <span class="p">=</span> <span class="s">&#34;myindex.tpl&#34;</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">TestArgController</span><span class="p">)</span> <span class="nf">Post</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">u</span> <span class="o">:=</span> <span class="nx">User</span><span class="p">{}</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">c</span><span class="p">.</span><span class="nf">ParseForm</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">u</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+
+	<span class="p">}</span>
+	<span class="nx">c</span><span class="p">.</span><span class="nx">Ctx</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="s">&#34;Username:&#34;</span> <span class="o">+</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Username</span> <span class="o">+</span> <span class="s">&#34;Age:&#34;</span> <span class="o">+</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Age</span> <span class="o">+</span> <span class="s">&#34;Email:&#34;</span> <span class="o">+</span> <span class="nx">u</span><span class="p">.</span><span class="nx">Email</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div><h4 id="model层">model层</h4>
+<p>beego ORM是一个强大的go语言ORM框架</p>
+<h5 id="1orm特性">1.ORM特性</h5>
+<pre><code>支持go所有类型存储
+简单易上手
+自动Join关联表
+跨数据库兼容
+允许直接使用SQL查询/映射
+</code></pre><h5 id="2代码实战">2.代码实战</h5>
+<h6 id="1控制器">1.控制器</h6>
+<p>xxxController</p>
+<p>TestMode.go</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">orm</span><span class="p">.</span><span class="nf">RegisterDataBase</span><span class="p">(</span><span class="s">&#34;default&#34;</span><span class="p">,</span> <span class="s">&#34;mysql&#34;</span><span class="p">,</span> <span class="s">&#34;root:li000000@tcp(127.0.0.1:3306)/WebTest?charset=utf8&#34;</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+		<span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+	<span class="p">}</span>
+	<span class="nx">orm</span><span class="p">.</span><span class="nf">RegisterModel</span><span class="p">(</span><span class="nb">new</span><span class="p">(</span><span class="nx">UserInfo</span><span class="p">))</span> <span class="c1">//创建一个user_info表 UserInfo
+</span><span class="c1"></span><span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="o">*</span><span class="nx">TestModelController</span><span class="p">)</span> <span class="nf">Get</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">o</span> <span class="o">:=</span> <span class="nx">orm</span><span class="p">.</span><span class="nf">NewOrm</span><span class="p">()</span>
+	<span class="nx">user</span> <span class="o">:=</span> <span class="nx">UserInfo</span><span class="p">{</span><span class="nx">Username</span><span class="p">:</span> <span class="s">&#34;xiang&#34;</span><span class="p">,</span> <span class="nx">Password</span><span class="p">:</span> <span class="s">&#34;123456&#34;</span><span class="p">}</span>
+	<span class="nx">id</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">o</span><span class="p">.</span><span class="nf">Insert</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">user</span><span class="p">)</span>
+
+	<span class="nx">c</span><span class="p">.</span><span class="nx">Ctx</span><span class="p">.</span><span class="nf">WriteString</span><span class="p">(</span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Sprintf</span><span class="p">(</span><span class="s">&#34;操作数据库id=%d err:%v&#34;</span><span class="p">,</span> <span class="nx">id</span><span class="p">,</span> <span class="nx">err</span><span class="p">))</span>
+
+<span class="p">}</span>
+</code></pre></div><p>router.go</p>
+<div class="highlight"><pre class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">routers</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+	<span class="s">&#34;github.com/astaxie/beego&#34;</span>
+	<span class="s">&#34;github.com/beego/bee/myweb/controllers&#34;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">MainController</span><span class="p">{},</span> <span class="s">&#34;get:Get;post:Test&#34;</span><span class="p">)</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/test&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">TestController</span><span class="p">{},</span> <span class="s">&#34;get:Get;post:Post&#34;</span><span class="p">)</span>
+	<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/test/arg&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">TestArgController</span><span class="p">{},</span> <span class="s">&#34;get:Get;post:Post&#34;</span><span class="p">)</span>
+	<span class="c1">//测试ORM
+</span><span class="c1"></span>	<span class="nx">beego</span><span class="p">.</span><span class="nf">Router</span><span class="p">(</span><span class="s">&#34;/test/orm&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">controllers</span><span class="p">.</span><span class="nx">TestModelController</span><span class="p">{},</span> <span class="s">&#34;get:Get;post:Post&#34;</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://lixiang-code.github.io/posts/beego/>https://lixiang-code.github.io/posts/beego/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://lixiang-code.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://lixiang-code.github.io/posts/dbgsystem/" class="prev" rel="prev" title=""><i class="iconfont icon-left"></i>&nbsp;</a>
+         
+        
+        <a href="https://lixiang-code.github.io/posts/hugoisforlovers/" class="next" rel="next" title="Getting Started with Hugo">Getting Started with Hugo&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>

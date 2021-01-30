@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noodp"/>
+  
+  
+  
+  
+  <link rel="prev" href="https://lixiang-code.github.io/posts/smartbit/" />
+  <link rel="next" href="https://lixiang-code.github.io/posts/mysql%E7%AC%94%E8%AE%B0/" />
+  <link rel="canonical" href="https://lixiang-code.github.io/posts/note/" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <title>
+       
+       
+            | lee blog
+       
+  </title>
+  <meta name="title" content=" | lee blog">
+    
+  
+  <link rel="stylesheet" href="/font/iconfont.css">
+  <link rel="stylesheet" href="/css/main.min.css">
+
+
+  
+  
+ 
+
+<script type="application/ld+json">
+ "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/lixiang-code.github.io"
+    },
+    "articleSection" : "posts",
+    "name" : "",
+    "headline" : "",
+    "description" : "1.进程同步之信号量机制(PV操作) 1.1.信号量机制 信号量机制即利用pv操作对信号量进行处理.\n什么是信号量?信号量(semaphore)的数据结构为一个值和一个指针,指针指向等待该信号量的下一个进程.信号量的值与相应资源的使用情况有关.\n当它的值大于0时,表示当前可用资源的数量;\n当它的值小于0时,其绝对值表示等待使用该资源的进程个数.\n注意,信号量的值仅能由pv操作来改变.\n一般来说，信号量S\x26gt;0时，S表示可用资源的数量。执行一次P操作意味着请求分配一个单位资源，因此S的值减1；当S\x26lt;0时，表示已经没有可用资源，请求者必须等待别的进程释放该类资源，它才能运行下去。而执行一个V操作意味着释放一个单位资源，因此S的值加1；若S=0，表示有某些进程正在等待该资源，因此要唤醒一个等待状态的进程，使之运行下去。\n1.2.PV操作 什么是PV操作?\nP操作(wait):申请一个单位资源,进程进入\n经典伪代码:\nwait(S){ while(s\x26lt;=0)\t\/\/如果没有资源则会循环等待； \t; S-- ; } V操作(signal):释放一个单位资源,进程出来\n经典伪代码:\nsignal(S){ S\x2b\x2b ; } p操作（wait）：申请一个单位资源，进程进入\nv操作（signal）：释放一个单位资源，进程出来\nPV操作的含义：PV操作由P操作原语和V操作原语组成（原语是不可中断的过程），对信号量进行操作，具体定义如下： P（S）：①将信号量S的值减1，即S=S-1； ②如果S\x26lt;=0，则该进程继续执行；否则该进程置为等待状态，排入等待队列。 V（S）：①将信号量S的值加1，即S=S\x2b1； ②如果S\x26gt;0，则该进程继续执行；否则释放队列中第一个等待信号量的进程。\nPV操作的意义：我们用信号量及PV操作来实现进程的同步和互斥。PV操作属于进程的低级通信。\n利用信号量和PV操作实现进程互斥的一般模型是： 进程P1 进程P2 …… 进程Pn …… …… …… P（S）； P（S）； P（S）； 临界区； 临界区； 临界区； V（S）； V（S）； V（S）； …… …… …… ……\n其中信号量S用于互斥，初值为1。 使用PV操作实现进程互斥时应该注意的是： （1）每个程序中用户实现互斥的P、V操作必须成对出现，先做P操作，进临界区，后做V操作，出临界区。若有多个分支，要认真检查其成对性。 （2）P、V操作应分别紧靠临界区的头尾部，临界区的代码应尽可能短，不能有死循环。 （3）互斥信号量的初值一般为1。\n利用信号量和PV操作实现进程同步 PV操作是典型的同步机制之一。用一个信号量与一个消息联系起来，当信号量的值为0时，表示期望的消息尚未产生；当信号量的值非0时，表示期望的消息已经存在。用PV操作实现进程同步时，调用P操作测试消息是否到达，调用V操作发送消息。 使用PV操作实现进程同步时应该注意的是：\n（1）分析进程间的制约关系，确定信号量种类。在保持进程间有正确的同步关系情况下，哪个进程先执行，哪些进程后执行，彼此间通过什么资源（信号量）进行协调，从而明确要设置哪些信号量。 （2）信号量的初值与相应资源的数量有关，也与P、V操作在程序代码中出现的位置有关。 （3）同一信号量的P、V操作要成对出现，但它们分别在不同的进程代码中。  1.3例题 1.生产者*-*消费者问题 在多道程序环境下，进程同步是一个十分重要又令人感兴趣的问题，而生产者*-*消费者问题是其中一个有代表性的进程同步问题。下面我们给出了各种情况下的生产者*-*消费者问题，深入地分析和透彻地理解这个例子，对于全面解决操作系统内的同步、互斥问题将有很大帮助。",
+    "inLanguage" : "en-us",
+    "author" : "",
+    "creator" : "",
+    "publisher": "",
+    "accountablePerson" : "",
+    "copyrightHolder" : "",
+    "copyrightYear" : "0001",
+    "datePublished": "0001-01-01 00:00:00 \x2b0000 UTC",
+    "dateModified" : "0001-01-01 00:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/lixiang-code.github.io\/posts\/note\/",
+    "wordCount" : "205",
+    "keywords" : [  "lee blog"]
+}
+</script>
+
+</head>
+
+  
+
+
+  <body class="">
+    <div class="wrapper">
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-header header-logo">
+        	<a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lixiang-code.github.io">lee blog</a>
+        </div>
+        <div class="menu navbar-right">
+                
+                
+                <a class="menu-item" href="posts/" title="">Posts</a>
+                
+                <a class="menu-item" href="about-hugo/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+<nav class="navbar-mobile" id="nav-mobile" style="display: none">
+     <div class="container">
+        <div class="navbar-header">
+            <div>  <a href="javascript:void(0);" class="theme-switch"><i class="iconfont icon-xihuan"></i></a>&nbsp;<a href="https://lixiang-code.github.io">lee blog</a></div>
+            <div class="menu-toggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+     
+          <div class="menu" id="mobile-menu">
+                
+                
+                <a class="menu-item" href="posts/" title="">Posts</a>
+                
+                <a class="menu-item" href="about-hugo/" title="">About</a>
+                
+        </div>
+    </div>
+</nav>
+    	 <main class="main">
+          <div class="container">
+      		
+<article class="post-warp" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+        <h1 class="post-title" itemprop="name headline"></h1>
+        <div class="post-meta">
+                Written by <a itemprop="name" href="https://lixiang-code.github.io" rel="author"></a> with ♥ 
+                <span class="post-time">
+                on <time datetime=0001-01-01 itemprop="datePublished">January 1, 0001</time>
+                </span>
+                in
+                
+        </div>
+    </header>
+    <div class="post-content">
+        
+
+        
+
+        
+        
+     
+          
+          
+          
+
+          
+          
+          
+
+          <h4 id="1进程同步之信号量机制pv操作">1.进程同步之信号量机制(PV操作)</h4>
+<h5 id="11信号量机制">1.1.信号量机制</h5>
+<p>信号量机制即利用pv操作对信号量进行处理.</p>
+<p>什么是信号量?信号量(semaphore)的数据结构为一个值和一个指针,指针指向等待该信号量的下一个进程.信号量的值与相应资源的使用情况有关.</p>
+<p>当它的值大于0时,表示当前可用资源的数量;</p>
+<p>当它的值小于0时,其绝对值表示等待使用该资源的进程个数.</p>
+<p>注意,信号量的值仅能由pv操作来改变.</p>
+<p>一般来说，信号量S&gt;0时，S表示可用资源的数量。执行一次P操作意味着请求分配一个单位资源，因此S的值减1；当S&lt;0时，表示已经没有可用资源，请求者必须等待别的进程释放该类资源，它才能运行下去。而执行一个V操作意味着释放一个单位资源，因此S的值加1；若S=0，表示有某些进程正在等待该资源，因此要唤醒一个等待状态的进程，使之运行下去。</p>
+<h5 id="12pv操作">1.2.PV操作</h5>
+<p>什么是PV操作?</p>
+<p>P操作(wait):申请一个单位资源,进程进入</p>
+<p>经典伪代码:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">wait</span><span class="p">(</span><span class="n">S</span><span class="p">){</span>
+	<span class="k">while</span><span class="p">(</span><span class="n">s</span><span class="o">&lt;=</span><span class="mi">0</span><span class="p">)</span>	<span class="c1">//如果没有资源则会循环等待；
+</span><span class="c1"></span>		<span class="p">;</span>
+	<span class="n">S</span><span class="o">--</span> <span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>V操作(signal):释放一个单位资源,进程出来</p>
+<p>经典伪代码:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="n">signal</span><span class="p">(</span><span class="n">S</span><span class="p">){</span>
+	<span class="n">S</span><span class="o">++</span> <span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>p操作（wait）：申请一个单位资源，进程进入</p>
+<p>v操作（signal）：释放一个单位资源，进程出来</p>
+<p>PV操作的含义：PV操作由P操作原语和V操作原语组成（原语是不可中断的过程），对信号量进行操作，具体定义如下：
+P（S）：①将信号量S的值减1，即S=S-1；
+②如果S&lt;=0，则该进程继续执行；否则该进程置为等待状态，排入等待队列。
+V（S）：①将信号量S的值加1，即S=S+1；
+②如果S&gt;0，则该进程继续执行；否则释放队列中第一个等待信号量的进程。</p>
+<p>PV操作的意义：我们用信号量及PV操作来实现进程的同步和互斥。PV操作属于进程的低级通信。</p>
+<p>利用信号量和PV操作实现进程互斥的一般模型是：
+进程P1              进程P2           ……          进程Pn
+……                  ……                           ……
+P（S）；              P（S）；                         P（S）；
+临界区；             临界区；                        临界区；
+V（S）；              V（S）；                        V（S）；
+……                  ……            ……           ……</p>
+<p>其中信号量S用于互斥，初值为1。
+使用PV操作实现进程互斥时应该注意的是：
+（1）每个程序中用户实现互斥的P、V操作必须成对出现，先做P操作，进临界区，后做V操作，出临界区。若有多个分支，要认真检查其成对性。
+（2）P、V操作应分别紧靠临界区的头尾部，临界区的代码应尽可能短，不能有死循环。
+（3）互斥信号量的初值一般为1。</p>
+<p>利用信号量和PV操作实现进程同步
+PV操作是典型的同步机制之一。用一个信号量与一个消息联系起来，当信号量的值为0时，表示期望的消息尚未产生；当信号量的值非0时，表示期望的消息已经存在。用PV操作实现进程同步时，调用P操作测试消息是否到达，调用V操作发送消息。
+使用PV操作实现进程同步时应该注意的是：</p>
+<pre><code>（1）分析进程间的制约关系，确定信号量种类。在保持进程间有正确的同步关系情况下，哪个进程先执行，哪些进程后执行，彼此间通过什么资源（信号量）进行协调，从而明确要设置哪些信号量。
+（2）信号量的初值与相应资源的数量有关，也与P、V操作在程序代码中出现的位置有关。
+（3）同一信号量的P、V操作要成对出现，但它们分别在不同的进程代码中。
+</code></pre>
+<h5 id="13例题">1.3例题</h5>
+<p>1.生产者*-*消费者问题
+在多道程序环境下，进程同步是一个十分重要又令人感兴趣的问题，而生产者*-*消费者问题是其中一个有代表性的进程同步问题。下面我们给出了各种情况下的生产者*-*消费者问题，深入地分析和透彻地理解这个例子，对于全面解决操作系统内的同步、互斥问题将有很大帮助。</p>
+<p>（1）一个生产者，一个消费者，公用一个缓冲区。
+定义两个同步信号量：</p>
+<pre><code>empty——表示缓冲区是否为空，初值为1。
+   full——表示缓冲区中是否为满，初值为0。
+生产者进程
+while(TRUE){
+生产一个产品;
+     P(empty);
+     产品送往Buffer;
+     V(full);
+}
+消费者进程
+while(True){
+P(full);
+   从Buffer取出一个产品;
+   V(empty);
+   消费该产品;
+   }
+</code></pre><p>（2）一个生产者，一个消费者，公用n个环形缓冲区。
+定义两个同步信号量：
+empty——表示缓冲区是否为空，初值为n。
+full——表示缓冲区中是否为满，初值为0。</p>
+<p>（2）一个生产者，一个消费者，公用n个环形缓冲区。
+定义两个同步信号量：
+empty——表示缓冲区是否为空，初值为n。
+full——表示缓冲区中是否为满，初值为0。</p>
+<p>设缓冲区的编号为1～n-1，定义两个指针in和out，分别是生产者进程和消费者进程使用的指</p>
+<p>，指向下一个可用的缓冲区。</p>
+<pre><code>生产者进程
+while(TRUE){
+     生产一个产品;
+     P(empty);
+     产品送往buffer（in）；
+     in=(in+1)mod n；
+     V(full);
+}
+
+消费者进程
+while(TRUE){
+ P(full);
+   从buffer（out）中取出产品；
+   out=(out+1)mod n；
+   V(empty);
+   消费该产品;
+   }
+</code></pre><p>（3）一组生产者，一组消费者，公用n个环形缓冲区
+在这个问题中，不仅生产者与消费者之间要同步，而且各个生产者之间、各个消费者之间还必须互斥地访问缓冲区。
+定义四个信号量：
+empty——表示缓冲区是否为空，初值为n。
+full——表示缓冲区中是否为满，初值为0。
+mutex1——生产者之间的互斥信号量，初值为1。
+mutex2——消费者之间的互斥信号量，初值为1。</p>
+<p>（3）一组生产者，一组消费者，公用n个环形缓冲区
+在这个问题中，不仅生产者与消费者之间要同步，而且各个生产者之间、各个消费者之间还必须互斥地访问缓冲区。
+定义四个信号量：
+empty——表示缓冲区是否为空，初值为n。
+full——表示缓冲区中是否为满，初值为0。
+mutex1——生产者之间的互斥信号量，初值为1。
+mutex2——消费者之间的互斥信号量，初值为1。</p>
+<p>设缓冲区的编号为1～n-1，定义两个指针in和out，分别是生产者进程和消费者进程使用的指针，指向下一个可用的缓冲区。</p>
+<pre><code>生产者进程
+while(TRUE){
+     生产一个产品;
+     P(empty);
+     P(mutex1)；
+     产品送往buffer（in）；
+     in=(in+1)mod n；
+     V(mutex1);
+     V(full);
+}
+消费者进程
+while(TRUE){
+ P(full)
+   P(mutex2)；
+   从buffer（out）中取出产品；
+   out=(out+1)mod n；
+   V（mutex2）；
+   V(empty);
+   消费该产品;
+   }
+</code></pre><p>需要注意的是无论在生产者进程中还是在消费者进程中，两个P操作的次序不能颠倒。应先执行同步信号量的P操作，然后再执行互斥信号量的P操作，否则可能造成进程死锁。</p>
+<p>2.分水果问题</p>
+<p>桌上有一空盘，允许存放一只水果。爸爸可向盘中放苹果，也可向盘中放桔子，儿子专等吃盘中的桔子，女儿专等吃盘中的苹果。规定当盘空时一次只能放一只水果供吃者取用，请用<em>P</em>、<em>V</em>原语实现爸爸、儿子、女儿三个并发进程的同步。</p>
+<p>分析 在本题中，爸爸、儿子、女儿共用一个盘子，盘中一次只能放一个水果。当盘子为空时，爸爸可将一个水果放入果盘中。若放入果盘中的是桔子，则允许儿子吃，女儿必须等待；若放入果盘中的是苹果，则允许女儿吃，儿子必须等待。本题实际上是生产者-消费者问题的一种变形。这里，生产者放入缓冲区的产品有两类，消费者也有两类，每类消费者只消费其中固定的一类产品。</p>
+<p>解：在本题中，应设置三个信号量S、So、Sa，信号量S表示盘子是否为空，其初值为l；信号量So表示盘中是否有桔子，其初值为0；信号量Sa表示盘中是否有苹果，其初值为0。同步描述如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">S</span><span class="err">＝</span><span class="mi">1</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">Sa</span><span class="err">＝</span><span class="mi">0</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">So</span><span class="err">＝</span><span class="mi">0</span><span class="p">;</span>
+      <span class="n">main</span><span class="p">()</span>
+      <span class="p">{</span>
+        <span class="n">cobegin</span>
+            <span class="n">father</span><span class="p">();</span>      <span class="cm">/*父亲进程*/</span>
+            <span class="n">son</span><span class="p">();</span>        <span class="cm">/*儿子进程*/</span>
+            <span class="n">daughter</span><span class="p">();</span>    <span class="cm">/*女儿进程*/</span>
+        <span class="n">coend</span>
+    <span class="err">｝</span>
+    <span class="n">father</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+          <span class="p">{</span>
+            <span class="n">P</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+            <span class="err">将水果放入盘中</span><span class="p">;</span>
+            <span class="k">if</span><span class="err">（放入的是桔子）</span><span class="n">V</span><span class="p">(</span><span class="n">So</span><span class="p">);</span>
+            <span class="k">else</span>  <span class="nf">V</span><span class="p">(</span><span class="n">Sa</span><span class="p">);</span>
+           <span class="p">}</span>
+     <span class="p">}</span>
+    <span class="n">son</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+          <span class="p">{</span>
+             <span class="n">P</span><span class="p">(</span><span class="n">So</span><span class="p">);</span>
+             <span class="err">从盘中取出桔子</span><span class="p">;</span>
+             <span class="n">V</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+             <span class="err">吃桔子</span><span class="p">;</span>
+            <span class="err">｝</span>
+    <span class="p">}</span>
+    <span class="n">daughter</span><span class="p">()</span>
+    <span class="p">{</span>
+         <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="p">{</span>
+              <span class="n">P</span><span class="p">(</span><span class="n">Sa</span><span class="p">);</span>
+              <span class="err">从盘中取出苹果</span><span class="p">;</span>
+              <span class="n">V</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+              <span class="err">吃苹果</span><span class="p">;</span>
+            <span class="err">｝</span>
+<span class="err">｝</span>
+</code></pre></div>
+    </div>
+
+    <div class="post-copyright">
+            
+           
+             
+            <p class="copyright-item">
+                    <span>Link:</span>
+                    <a href=https://lixiang-code.github.io/posts/note/>https://lixiang-code.github.io/posts/note/</span>
+            </p>
+            
+            
+    </div>
+
+  
+    <div class="post-tags">
+        
+        <section>
+                <a href="javascript:window.history.back();">back</a></span> · 
+                <span><a href="https://lixiang-code.github.io">home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+        
+        <a href="https://lixiang-code.github.io/posts/smartbit/" class="prev" rel="prev" title=""><i class="iconfont icon-left"></i>&nbsp;</a>
+         
+        
+        <a href="https://lixiang-code.github.io/posts/mysql%E7%AC%94%E8%AE%B0/" class="next" rel="next" title="">&nbsp;<i class="iconfont icon-right"></i></a>
+        
+    </div>
+
+    <div class="post-comment">
+          
+                 
+          
+    </div>
+</article>
+          </div>
+		   </main>
+      <footer class="footer">
+    <div class="copyright">
+        &copy;
+        
+        <span class="with-love">
+    	 <i class="iconfont icon-love"></i> 
+         </span>
+         
+
+         
+		  <span>Powered by <a href="https://gohugo.io/" target="_blank" rel="external nofollow">Hugo</a> & <a href="https://github.com/liuzc/leaveit" target="_blank" rel="external nofollow">LeaveIt</a></span> 
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="/js/vendor_no_gallery.min.js" async=""></script>
+    
+  
+
+
+
+     </div>
+  </body>
+</html>
