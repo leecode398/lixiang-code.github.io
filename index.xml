@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hugo Blog</title>
-    <link>/</link>
-    <description>Recent content on Hugo Blog</description>
+    <title>Lee</title>
+    <link>lixiang-code.github.io/</link>
+    <description>Recent content on Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
     <lastBuildDate>Sat, 29 Dec 2018 20:24:28 +0800</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="lixiang-code.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Links</title>
-      <link>/links/</link>
+      <link>lixiang-code.github.io/links/</link>
       <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/links/</guid>
+      <guid>lixiang-code.github.io/links/</guid>
       <description>Ritchie and his friends.</description>
     </item>
     
     <item>
       <title>test</title>
-      <link>/posts/test/</link>
+      <link>lixiang-code.github.io/posts/test/</link>
       <pubDate>Sat, 30 Jan 2021 23:42:57 +0800</pubDate>
       
-      <guid>/posts/test/</guid>
+      <guid>lixiang-code.github.io/posts/test/</guid>
       <description>1.安装 到http://172.22.102.206/documents/392下载cscope.shell, .vim和 .vimrc 拷贝.vim问价夹和.vimrc文件到用户根目录(~/) 在项目code目录及sdk目录执行脚本cscope.shell(也可以在项目根目录) TODOhello lll </description>
     </item>
     
     <item>
       <title>Go Rpc</title>
-      <link>/post/go-rpc/</link>
+      <link>lixiang-code.github.io/post/go-rpc/</link>
       <pubDate>Fri, 20 Mar 2020 21:09:01 +0800</pubDate>
       
-      <guid>/post/go-rpc/</guid>
+      <guid>lixiang-code.github.io/post/go-rpc/</guid>
       <description>Rpc (Remote Procedure Call) 远程过程调用RPC, 就是客户端基于某种传输协议通过网络向服务提供端请求服务处理, 然后获取反回数据; 这种调用对于客户端而言和本地调用一样方便, 开发人员不需要了解具体的底层网络传输协议. 简单讲, 就是本地调用的逻辑处理的过程放在远程的机器上.
 RPC架构 一般，远程过程调用RPC就是本地动态代理隐藏通信细节，通过组件序列化请求，走网络到服务端，执行真正的服务代码，然后将结果返回给客户端，反序列化数据给调用方法的过程。
 RPC具体调用流程如下所示：
@@ -56,10 +56,10 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
     
     <item>
       <title>Go Rpc</title>
-      <link>/posts/go-rpc/</link>
+      <link>lixiang-code.github.io/posts/go-rpc/</link>
       <pubDate>Fri, 20 Mar 2020 21:09:01 +0800</pubDate>
       
-      <guid>/posts/go-rpc/</guid>
+      <guid>lixiang-code.github.io/posts/go-rpc/</guid>
       <description>Rpc (Remote Procedure Call) 远程过程调用RPC, 就是客户端基于某种传输协议通过网络向服务提供端请求服务处理, 然后获取反回数据; 这种调用对于客户端而言和本地调用一样方便, 开发人员不需要了解具体的底层网络传输协议. 简单讲, 就是本地调用的逻辑处理的过程放在远程的机器上.
 RPC架构 一般，远程过程调用RPC就是本地动态代理隐藏通信细节，通过组件序列化请求，走网络到服务端，执行真正的服务代码，然后将结果返回给客户端，反序列化数据给调用方法的过程。
 RPC具体调用流程如下所示：
@@ -80,10 +80,10 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
     
     <item>
       <title>药师灌顶真言</title>
-      <link>/posts/chinese-preview/</link>
+      <link>lixiang-code.github.io/posts/chinese-preview/</link>
       <pubDate>Thu, 11 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>/posts/chinese-preview/</guid>
+      <guid>lixiang-code.github.io/posts/chinese-preview/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;修学药师灌顶真言是药师法门的一部分，读诵修持有着极大的功德利益&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -96,10 +96,10 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
     
     <item>
       <title>日本語敬語体系</title>
-      <link>/posts/japanese-preview/</link>
+      <link>lixiang-code.github.io/posts/japanese-preview/</link>
       <pubDate>Wed, 10 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>/posts/japanese-preview/</guid>
+      <guid>lixiang-code.github.io/posts/japanese-preview/</guid>
       <description>&lt;blockquote&gt;
 &lt;p&gt;日本語の敬語体系は、一般に、大きく尊敬語・謙譲語・丁寧語に分類される。文化審議会国語分科会は、2007年2月に「敬語の指針」を答申し、これに丁重語および美化語を含めた5分類を示している。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -109,20 +109,20 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
     
     <item>
       <title>Creating a New Theme</title>
-      <link>/posts/english-preview/</link>
+      <link>lixiang-code.github.io/posts/english-preview/</link>
       <pubDate>Mon, 01 Apr 2019 14:26:00 +0800</pubDate>
       
-      <guid>/posts/english-preview/</guid>
+      <guid>lixiang-code.github.io/posts/english-preview/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Theme Preview</title>
-      <link>/posts/theme-preview/</link>
+      <link>lixiang-code.github.io/posts/theme-preview/</link>
       <pubDate>Sun, 31 Mar 2019 17:49:40 +0800</pubDate>
       
-      <guid>/posts/theme-preview/</guid>
+      <guid>lixiang-code.github.io/posts/theme-preview/</guid>
       <description>&lt;h1 id=&#34;headings&#34;&gt;Headings&lt;/h1&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;# H1
 &lt;span style=&#34;color:#75715e&#34;&gt;## H2
@@ -135,10 +135,10 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
     
     <item>
       <title>关于</title>
-      <link>/about/</link>
+      <link>lixiang-code.github.io/about/</link>
       <pubDate>Sat, 29 Dec 2018 20:24:28 +0800</pubDate>
       
-      <guid>/about/</guid>
+      <guid>lixiang-code.github.io/about/</guid>
       <description>Hugo 官方主页: https://gohugo.io/
 Hugo的安装方式有两种，一种是直接下载编译好的Hugo二进制文件。如果只是使用Hugo推荐用这种方式。另一种方式是获取Hugo的源码，自己编译。由于各种不可预料的网络问题，第二种方式不是那么轻易能成功，虽然最后我还是折腾出来了。
 Hugo二进制下载地址: https://github.com/gohugoio/hugo/releases</description>
@@ -146,10 +146,10 @@ Hugo二进制下载地址: https://github.com/gohugoio/hugo/releases</descriptio
     
     <item>
       <title>The &#34;figure&#34; Shortcode</title>
-      <link>/posts/the-figure-shortcode/</link>
+      <link>lixiang-code.github.io/posts/the-figure-shortcode/</link>
       <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
       
-      <guid>/posts/the-figure-shortcode/</guid>
+      <guid>lixiang-code.github.io/posts/the-figure-shortcode/</guid>
       <description>Hugo has figure shortcode built in, so you can easily add figcaptions or hyperlink rel attributes to images. Documentations can be found here:
 https://gohugo.io/content-management/shortcodes/#figure
 This theme has 3 CSS classes made for figure elements:
@@ -158,10 +158,10 @@ This theme has 3 CSS classes made for figure elements:
     
     <item>
       <title>vim guide</title>
-      <link>/posts/vim/</link>
+      <link>lixiang-code.github.io/posts/vim/</link>
       <pubDate>Mon, 24 Dec 2018 12:29:41 +0800</pubDate>
       
-      <guid>/posts/vim/</guid>
+      <guid>lixiang-code.github.io/posts/vim/</guid>
       <description>VIM    Version Change Description Author Date     1.0 vim基本使用方法 lixiang 2020/8/20                      1.安装 到http://172.22.102.206/documents/392下载cscope.shell, .vim和 .vimrc 拷贝.vim问价夹和.vimrc文件到用户根目录(~/) 在项目code目录及sdk目录执行脚本cscope.shell(也可以在项目根目录) 2.vim常用快捷键 2.1. 移动光标
 ​	基础移动:
 h(左), j(下), k(上), l(右) ​	高级移动:
@@ -172,10 +172,10 @@ w (移动到下个单词开头) e (移动到单词尾) f+(char) (移动到当先
     
     <item>
       <title>Post With Featured Image</title>
-      <link>/posts/post-with-featured-image/</link>
+      <link>lixiang-code.github.io/posts/post-with-featured-image/</link>
       <pubDate>Mon, 01 Oct 2018 16:15:09 +0800</pubDate>
       
-      <guid>/posts/post-with-featured-image/</guid>
+      <guid>lixiang-code.github.io/posts/post-with-featured-image/</guid>
       <description>Just define the image URL in the content’s front matter, the featured image will be displayed as the background.
 For example:
 --- images: - https://picsum.photos/1024/768/?random --- This is an array, you can set multiple urls, only the first url will be used. These images is also used in Twitter Cards and the Open Graph metadata.</description>
@@ -183,58 +183,58 @@ For example:
     
     <item>
       <title>Resume</title>
-      <link>/resume/</link>
+      <link>lixiang-code.github.io/resume/</link>
       <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/resume/</guid>
+      <guid>lixiang-code.github.io/resume/</guid>
       <description>This is my resume.</description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>/post/creating-a-new-theme/</link>
+      <link>lixiang-code.github.io/post/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/creating-a-new-theme/</guid>
+      <guid>lixiang-code.github.io/post/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>/posts/creating-a-new-theme/</link>
+      <link>lixiang-code.github.io/posts/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/creating-a-new-theme/</guid>
+      <guid>lixiang-code.github.io/posts/creating-a-new-theme/</guid>
       <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>/post/goisforlovers/</link>
+      <link>lixiang-code.github.io/post/goisforlovers/</link>
       <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/goisforlovers/</guid>
+      <guid>lixiang-code.github.io/post/goisforlovers/</guid>
       <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates.</description>
     </item>
     
     <item>
       <title>Hugo 主题 Nuo 文章样式预览</title>
-      <link>/post/hugo-nuo-post-preview/</link>
+      <link>lixiang-code.github.io/post/hugo-nuo-post-preview/</link>
       <pubDate>Thu, 17 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/hugo-nuo-post-preview/</guid>
+      <guid>lixiang-code.github.io/post/hugo-nuo-post-preview/</guid>
       <description>&lt;p&gt;这篇文章集中说明本人博客主题所支持的 Markdown 语法和 Hugo Shortcodes 插件，你也可以在这里预览到他们的样子。如果你不喜欢某些部分的样式，可以去修改 &lt;code&gt;content.scss&lt;/code&gt; 和 &lt;code&gt;shortcodes.scss&lt;/code&gt; 这两个文件。预告一下，我所用的这个名为 &lt;code&gt;Nuo&lt;/code&gt; 的 &lt;code&gt;Hugo&lt;/code&gt; 也将于近期发布，敬请期待。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>/post/hugoisforlovers/</link>
+      <link>lixiang-code.github.io/post/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/hugoisforlovers/</guid>
+      <guid>lixiang-code.github.io/post/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at installing hugo
@@ -245,10 +245,10 @@ Follow the following steps:
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>/posts/hugoisforlovers/</link>
+      <link>lixiang-code.github.io/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/hugoisforlovers/</guid>
+      <guid>lixiang-code.github.io/posts/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo Go to Hugo releases and download the appropriate version for your OS and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at Install Hugo
@@ -259,10 +259,10 @@ Follow the following steps:
     
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>/post/migrate-from-jekyll/</link>
+      <link>lixiang-code.github.io/post/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>/post/migrate-from-jekyll/</guid>
+      <guid>lixiang-code.github.io/post/migrate-from-jekyll/</guid>
       <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>

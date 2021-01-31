@@ -86,7 +86,7 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
 3.JSON-RPC请求 JSON-RPC 2.0和1.0之间一些差异，我们这里介绍2.0的使用，一个JSON-RPC的请求必须包含以下4个字段。
 1.jsonrpc: 指定JSON-RPC的版本，必须设置为2.0 2.id: 已建立客户端的唯一标识id，值必须包含一个字符串、数值或NULL空值。如果不包含该成员则被认定为是一个通知。该值一般不为NULL，若为数值则不应该包含小数。 3.method: 包含所要调用方法名称的字符串，以rpc开头的方法名，用英文句号连接的为预留给rpc内部的方法名及扩展名，且不能在其他地方使用。 4.params: 方法传入的参数，若无参数则传入空[] 4.JSON-RPC响应 当发起一个RPC调用时，除通知之外服务端都必须有响应，响应表示为一个JSON对象包含以下几个字段。
 1.jsonrpc: 指定JSON-RPC的版本，固定为为2.0 2.id: 调用标识符，用于标示一次远程调用过程，值必须包含一个字符串、数值。 3.result: 如果调用成功则显示响应结果 4.error: 如果调用失败则显示错误的信息，error带有以下几个字段 4.1.code: 使用数值表示该异常的错误类型，必须为整数 【必须】 4.">
-  <meta property="og:url" content="/post/go-rpc/">
+  <meta property="og:url" content="lixiang-code.github.io/post/go-rpc/">
   <meta property="og:image" content="/images/avatar.png">
 
 
@@ -95,7 +95,7 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
 <meta name="generator" content="Hugo 0.68.3">
 
 
-<link rel="canonical" href="/post/go-rpc/">
+<link rel="canonical" href="lixiang-code.github.io/post/go-rpc/">
 
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -115,25 +115,25 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
 <meta name="theme-color" content="#02b875">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Hugo Blog">
-<meta name="msapplication-tooltip" content="Hugo Blog">
+<meta name="apple-mobile-web-app-title" content="Lee">
+<meta name="msapplication-tooltip" content="Lee">
 <meta name='msapplication-navbutton-color' content="#02b875">
 <meta name="msapplication-TileColor" content="#02b875">
 <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
-<link rel="icon" sizes="192x192" href="/icons/icon-192x192.png">
-<link rel="apple-touch-icon" href="/icons/icon-152x152.png">
-<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="lixiang-code.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="lixiang-code.github.io/icons/icon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="lixiang-code.github.io/icons/icon-32x32.png">
+<link rel="icon" sizes="192x192" href="lixiang-code.github.io/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="lixiang-code.github.io/icons/icon-152x152.png">
+<link rel="manifest" href="lixiang-code.github.io/manifest.json">
 
 
-<link rel="preload" href="/styles/main-rendered.min.css" as="style">
+<link rel="preload" href="lixiang-code.github.io/styles/main-rendered.min.css" as="style">
 
 
 <link rel="preload" href="https://fonts.googleapis.com/css?family=Lobster" as="style">
-<link rel="preload" href="/images/avatar.png" as="image">
-<link rel="preload" href="/images/grey-prism.svg" as="image">
+<link rel="preload" href="lixiang-code.github.io/images/avatar.png" as="image">
+<link rel="preload" href="lixiang-code.github.io/images/grey-prism.svg" as="image">
 
 
 <style>
@@ -141,7 +141,7 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
     background: rgb(244, 243, 241) url('/images/grey-prism.svg') repeat fixed;
   }
 </style>
-<link rel="stylesheet" href="/styles/main-rendered.min.css">
+<link rel="stylesheet" href="lixiang-code.github.io/styles/main-rendered.min.css">
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
@@ -183,11 +183,11 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
     
     
   <header class="site-header">
-  <a href=""><img class="avatar" src="/images/avatar.png" alt="Avatar"></a>
+  <a href="lixiang-code.github.io"><img class="avatar" src="lixiang-code.github.io/images/avatar.png" alt="Avatar"></a>
   
-  <h2 class="title"><a href="">Hugo Blog</a></h2>
+  <h2 class="title"><a href="lixiang-code.github.io">Lee</a></h2>
   
-  <p class="subtitle">~ Keep It Simple &amp; Stupid ~</p>
+  <p class="subtitle">Coding Forever!</p>
   <button class="menu-toggle" type="button" aria-label="Main Menu" aria-expanded="false" tab-index="0">
     <span class="icon icon-menu" aria-hidden="true"></span>
   </button>
@@ -203,28 +203,28 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
           
           
            is-active">
-          <a href="/">Home</a>
+          <a href="lixiang-code.github.io/">Home</a>
         </li>
       
         <li class="menu-item
           
           
           ">
-          <a href="https://github.com/laozhu">Works</a>
+          <a href="lixiang-code.github.io/post/">Article</a>
         </li>
       
         <li class="menu-item
           
           
           ">
-          <a href="/tags/">Tags</a>
+          <a href="lixiang-code.github.io/tags/">Tags</a>
         </li>
       
         <li class="menu-item
           
           
           ">
-          <a href="/links/">Links</a>
+          <a href="lixiang-code.github.io/links/">Links</a>
         </li>
       
     </ul>
@@ -248,7 +248,7 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
             <span class="icon icon-weibo" aria-hidden="true"></span>
           </a>
         </li><li class="social-item">
-          <a href="/images/qrcode.jpg" rel="me" title="Wechat" aria-label="Wechat">
+          <a href="lixiang-code.github.io/images/qrcode.jpg" rel="me" title="Wechat" aria-label="Wechat">
             <span class="icon icon-wechat" aria-hidden="true"></span>
           </a>
         </li><li class="social-item">
@@ -262,7 +262,7 @@ JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，�
   <section class="main post-detail">
     <header class="post-header">
       <h1 class="post-title">Go Rpc</h1>
-      <p class="post-meta">@Ritchie Zhu · Mar 20, 2020 · 15 min read</p>
+      <p class="post-meta">@lee · Mar 20, 2020 · 15 min read</p>
     </header>
     <article class="post-content"><h2 id="rpc-remote-procedure-call">Rpc (Remote Procedure Call)</h2>
 <p>远程过程调用RPC, 就是客户端基于某种传输协议通过网络向服务提供端请求服务处理, 然后获取反回数据; 这种调用对于客户端而言和本地调用一样方便, 开发人员不需要了解具体的底层网络传输协议. 简单讲, 就是本地调用的逻辑处理的过程放在远程的机器上.</p>
@@ -1420,7 +1420,7 @@ tab:Init(sTmp);
   </section>
   
 <footer class="site-footer">
-  <p>© 2017-2021 Hugo Blog</p>
+  <p>© 2017-2021 Lee</p>
   <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
   
 </footer>
@@ -1460,7 +1460,7 @@ tab:Init(sTmp);
 
 
 
-<script src="/scripts/index.min.js"></script>
+<script src="lixiang-code.github.io/scripts/index.min.js"></script>
 
 <script>
   if ('serviceWorker' in navigator) {

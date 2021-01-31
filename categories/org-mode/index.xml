@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>org mode on Hugo Blog</title>
-    <link>/categories/org-mode/</link>
-    <description>Recent content in org mode on Hugo Blog</description>
+    <title>org mode on Lee</title>
+    <link>lixiang-code.github.io/categories/org-mode/</link>
+    <description>Recent content in org mode on Lee</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
     <lastBuildDate>Sat, 30 Jan 2021 23:42:57 +0800</lastBuildDate>
     
-	<atom:link href="/categories/org-mode/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="lixiang-code.github.io/categories/org-mode/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>test</title>
-      <link>/posts/test/</link>
+      <link>lixiang-code.github.io/posts/test/</link>
       <pubDate>Sat, 30 Jan 2021 23:42:57 +0800</pubDate>
       
-      <guid>/posts/test/</guid>
+      <guid>lixiang-code.github.io/posts/test/</guid>
       <description>1.安装 到http://172.22.102.206/documents/392下载cscope.shell, .vim和 .vimrc 拷贝.vim问价夹和.vimrc文件到用户根目录(~/) 在项目code目录及sdk目录执行脚本cscope.shell(也可以在项目根目录) TODOhello lll </description>
     </item>
     

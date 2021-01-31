@@ -44,7 +44,7 @@ This document is a brief primer on using go templates.">
   <meta property="og:title" content="(Hu)go Template Primer">
   <meta property="og:description" content="Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
 This document is a brief primer on using go templates.">
-  <meta property="og:url" content="/post/goisforlovers/">
+  <meta property="og:url" content="lixiang-code.github.io/post/goisforlovers/">
   <meta property="og:image" content="/images/avatar.png">
 
 
@@ -53,7 +53,7 @@ This document is a brief primer on using go templates.">
 <meta name="generator" content="Hugo 0.68.3">
 
 
-<link rel="canonical" href="/post/goisforlovers/">
+<link rel="canonical" href="lixiang-code.github.io/post/goisforlovers/">
 
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -73,25 +73,25 @@ This document is a brief primer on using go templates.">
 <meta name="theme-color" content="#02b875">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
-<meta name="apple-mobile-web-app-title" content="Hugo Blog">
-<meta name="msapplication-tooltip" content="Hugo Blog">
+<meta name="apple-mobile-web-app-title" content="Lee">
+<meta name="msapplication-tooltip" content="Lee">
 <meta name='msapplication-navbutton-color' content="#02b875">
 <meta name="msapplication-TileColor" content="#02b875">
 <meta name="msapplication-TileImage" content="/icons/icon-144x144.png">
-<link rel="icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32x32.png">
-<link rel="icon" sizes="192x192" href="/icons/icon-192x192.png">
-<link rel="apple-touch-icon" href="/icons/icon-152x152.png">
-<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="lixiang-code.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="lixiang-code.github.io/icons/icon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="lixiang-code.github.io/icons/icon-32x32.png">
+<link rel="icon" sizes="192x192" href="lixiang-code.github.io/icons/icon-192x192.png">
+<link rel="apple-touch-icon" href="lixiang-code.github.io/icons/icon-152x152.png">
+<link rel="manifest" href="lixiang-code.github.io/manifest.json">
 
 
-<link rel="preload" href="/styles/main-rendered.min.css" as="style">
+<link rel="preload" href="lixiang-code.github.io/styles/main-rendered.min.css" as="style">
 
 
 <link rel="preload" href="https://fonts.googleapis.com/css?family=Lobster" as="style">
-<link rel="preload" href="/images/avatar.png" as="image">
-<link rel="preload" href="/images/grey-prism.svg" as="image">
+<link rel="preload" href="lixiang-code.github.io/images/avatar.png" as="image">
+<link rel="preload" href="lixiang-code.github.io/images/grey-prism.svg" as="image">
 
 
 <style>
@@ -99,7 +99,7 @@ This document is a brief primer on using go templates.">
     background: rgb(244, 243, 241) url('/images/grey-prism.svg') repeat fixed;
   }
 </style>
-<link rel="stylesheet" href="/styles/main-rendered.min.css">
+<link rel="stylesheet" href="lixiang-code.github.io/styles/main-rendered.min.css">
 
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
@@ -141,11 +141,11 @@ This document is a brief primer on using go templates.">
     
     
   <header class="site-header">
-  <a href=""><img class="avatar" src="/images/avatar.png" alt="Avatar"></a>
+  <a href="lixiang-code.github.io"><img class="avatar" src="lixiang-code.github.io/images/avatar.png" alt="Avatar"></a>
   
-  <h2 class="title"><a href="">Hugo Blog</a></h2>
+  <h2 class="title"><a href="lixiang-code.github.io">Lee</a></h2>
   
-  <p class="subtitle">~ Keep It Simple &amp; Stupid ~</p>
+  <p class="subtitle">Coding Forever!</p>
   <button class="menu-toggle" type="button" aria-label="Main Menu" aria-expanded="false" tab-index="0">
     <span class="icon icon-menu" aria-hidden="true"></span>
   </button>
@@ -161,28 +161,28 @@ This document is a brief primer on using go templates.">
           
           
            is-active">
-          <a href="/">Home</a>
+          <a href="lixiang-code.github.io/">Home</a>
         </li>
       
         <li class="menu-item
           
           
           ">
-          <a href="https://github.com/laozhu">Works</a>
+          <a href="lixiang-code.github.io/post/">Article</a>
         </li>
       
         <li class="menu-item
           
           
           ">
-          <a href="/tags/">Tags</a>
+          <a href="lixiang-code.github.io/tags/">Tags</a>
         </li>
       
         <li class="menu-item
           
           
           ">
-          <a href="/links/">Links</a>
+          <a href="lixiang-code.github.io/links/">Links</a>
         </li>
       
     </ul>
@@ -206,7 +206,7 @@ This document is a brief primer on using go templates.">
             <span class="icon icon-weibo" aria-hidden="true"></span>
           </a>
         </li><li class="social-item">
-          <a href="/images/qrcode.jpg" rel="me" title="Wechat" aria-label="Wechat">
+          <a href="lixiang-code.github.io/images/qrcode.jpg" rel="me" title="Wechat" aria-label="Wechat">
             <span class="icon icon-wechat" aria-hidden="true"></span>
           </a>
         </li><li class="social-item">
@@ -220,7 +220,7 @@ This document is a brief primer on using go templates.">
   <section class="main post-detail">
     <header class="post-header">
       <h1 class="post-title">(Hu)go Template Primer</h1>
-      <p class="post-meta">@Ritchie Zhu · Jul 28, 2014 · 7 min read</p>
+      <p class="post-meta">@lee · Jul 28, 2014 · 7 min read</p>
     </header>
     <article class="post-content"><p>Hugo uses the excellent <a href="http://golang.org/">go</a> <a href="http://golang.org/pkg/html/template/">html/template</a> library for
 its template engine. It is an extremely lightweight engine that provides a very
@@ -259,7 +259,7 @@ functions.</p>
 <p>Each go template has a struct (object) made available to it. In hugo each
 template is passed either a page or a node struct depending on which type of
 page you are rendering. More details are available on the
-<a href="/layout/variables">variables</a> page.</p>
+<a href="lixiang-code.github.io/layout/variables">variables</a> page.</p>
 <p>A variable is accessed by referencing the variable name.</p>
 <pre><code>&lt;title&gt;{{ .Title }}&lt;/title&gt;
 </code></pre>
@@ -270,7 +270,7 @@ page you are rendering. More details are available on the
 <h2 id="functions">Functions</h2>
 <p>Go template ship with a few functions which provide basic functionality. The go
 template system also provides a mechanism for applications to extend the
-available functions with their own. <a href="/layout/functions">Hugo template
+available functions with their own. <a href="lixiang-code.github.io/layout/functions">Hugo template
 functions</a> provide some additional functionality we believe
 are useful for building websites. Functions are called by using their name
 followed by the required parameters separated by spaces. Template
@@ -401,7 +401,7 @@ type (supported by your front matter/config format) and use them however
 you want to inside of your templates.</p>
 <h2 id="using-content-page-parameters">Using Content (page) Parameters</h2>
 <p>In each piece of content you can provide variables to be used by the
-templates. This happens in the <a href="/content/front-matter">front matter</a>.</p>
+templates. This happens in the <a href="lixiang-code.github.io/content/front-matter">front matter</a>.</p>
 <p>An example of this is used in this documentation site. Most of the pages
 benefit from having the table of contents provided. Sometimes the TOC just
 doesn&rsquo;t make a lot of sense. We&rsquo;ve defined a variable in our front matter
@@ -460,15 +460,15 @@ so, such as in this example:</p>
       
       <ul class="post-tags">
         
-          <li><a href="/tags/go"><span class="tag">Go</span></a></li>
+          <li><a href="lixiang-code.github.io/tags/go"><span class="tag">Go</span></a></li>
         
-          <li><a href="/tags/golang"><span class="tag">Golang</span></a></li>
+          <li><a href="lixiang-code.github.io/tags/golang"><span class="tag">Golang</span></a></li>
         
-          <li><a href="/tags/templates"><span class="tag">Templates</span></a></li>
+          <li><a href="lixiang-code.github.io/tags/templates"><span class="tag">Templates</span></a></li>
         
-          <li><a href="/tags/themes"><span class="tag">Themes</span></a></li>
+          <li><a href="lixiang-code.github.io/tags/themes"><span class="tag">Themes</span></a></li>
         
-          <li><a href="/tags/development"><span class="tag">Development</span></a></li>
+          <li><a href="lixiang-code.github.io/tags/development"><span class="tag">Development</span></a></li>
         
       </ul>
       
@@ -502,7 +502,7 @@ so, such as in this example:</p>
   </section>
   
 <footer class="site-footer">
-  <p>© 2017-2021 Hugo Blog</p>
+  <p>© 2017-2021 Lee</p>
   <p>Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank" rel="noopener">Nuo</a>.</p>
   
 </footer>
@@ -542,7 +542,7 @@ so, such as in this example:</p>
 
 
 
-<script src="/scripts/index.min.js"></script>
+<script src="lixiang-code.github.io/scripts/index.min.js"></script>
 
 <script>
   if ('serviceWorker' in navigator) {
