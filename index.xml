@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Go Rpc</title>
+      <link>http://lixiang-code.github.io/posts/go-rpc/</link>
+      <pubDate>Fri, 20 Mar 2020 21:09:01 +0800</pubDate>
+      
+      <guid>http://lixiang-code.github.io/posts/go-rpc/</guid>
+      <description>Rpc (Remote Procedure Call) 远程过程调用RPC, 就是客户端基于某种传输协议通过网络向服务提供端请求服务处理, 然后获取反回数据; 这种调用对于客户端而言和本地调用一样方便, 开发人员不需要了解具体的底层网络传输协议. 简单讲, 就</description>
+    </item>
+    
+    <item>
       <title>药师灌顶真言</title>
       <link>http://lixiang-code.github.io/posts/chinese-preview/</link>
       <pubDate>Thu, 11 Apr 2019 14:26:00 +0800</pubDate>
