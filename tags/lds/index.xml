@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lds on Lee Blog</title>
+    <link>http://localhost:1313/tags/lds/</link>
+    <description>Recent content in lds on Lee Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 31 Jan 2021 21:32:38 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/lds/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>lds</title>
+      <link>http://localhost:1313/post/fdss/</link>
+      <pubDate>Sun, 31 Jan 2021 21:32:38 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/fdss/</guid>
+      <description>&lt;p&gt;fu dss&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
