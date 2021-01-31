@@ -217,6 +217,34 @@
       
         <article class="post-entry">
   <header class="post-header">
+    <h3 class="post-title"><a href="/post/go-rpc/" class="post-link">Go Rpc</a></h3>
+    <p class="post-meta">@Ritchie Zhu · Mar 20, 2020 · 15 min read</p>
+  </header>
+  
+  <p class="post-summary">Rpc (Remote Procedure Call) 远程过程调用RPC, 就是客户端基于某种传输协议通过网络向服务提供端请求服务处理, 然后获取反回数据; 这种调用对于客户端而言和本地调用一样方便, 开发人员不需要了解具体的底层网络传输协议. 简单讲, 就是本地调用的逻辑处理的过程放在远程的机器上.
+RPC架构 一般，远程过程调用RPC就是本地动态代理隐藏通信细节，通过组件序列化请求，走网络到服务端，执行真正的服务代码，然后将结果返回给客户端，反序列化数据给调用方法的过程。
+RPC具体调用流程如下所示：
+![RPC调用流程](/Users/lx/OneDrive - RLS ,inc/markdown/grpc-go-stack.png)
+通用的RPC组件一般包括以下一些模块：
+serviceClient：这个模块主要是封装服务端对外提供的API，让客户端像使用本地API接口一样调用远程服务。一般，我们使用动态代理机制，当客户端调用api的方法时，serviceClient会走代理逻辑，去远程服务器请求真正的执行方法，然后将响应结果作为本地的api方法执行结果返回给客户端应用。类似RMI的stub模块。 processor：在服务端存在很多方法，当客户端请求过来，服务端需要定位到具体对象的具体方法，然后执行该方法，这个功能就由processor模块来完成。一般这个操作需要使用反射机制来获取用来执行真实处理逻辑的方法，当然，有的RPC直接在server初始化的时候，将一定规则写进Map映射中，这样直接获取对象即可。类似RMI的skeleton模块。 protocol：协议层，这是每个RPC组件的核心技术所在。一般，协议层包括编码/解码，或者说序列化和反序列化工作；当然，有的时候编解码不仅仅是对象序列化的工作，还有一些通信相关的字节流的额外解析部分。序列化工具有：hessian，protobuf，avro,thrift，json系，xml系等等。在RMI中这块是直接使用JDK自身的序列化组件。 transport：传输层，主要是服务端和客户端网络通信相关的功能。这里和下面的IO层区分开，主要是因为传输层处理server/client的网络通信交互，而不涉及具体底层处理连接请求和响应相关的逻辑。 I/O：这个模块主要是为了提高性能可能采用不同的IO模型和线程模型，当然，一般我们可能和上面的transport层联系的比较紧密，统一称为remote模块。 此外，还有业务代码自己去实现的client和server层。client当需要远程调用服务时，会首先初始化一个API接口代理对象，然后调用某个代理方法。server在对外暴露服务时，需要首先实现对应API接口内部的方法，当请求过来时，通过反射找到对应的实例对象，执行对应的业务代码。
+![img](/Users/lx/OneDrive - RLS ,inc/markdown/rpc框架.png)
+JSON-RPC 1.JSON-RPC介绍 JSON-RPC是一个无状态且轻量级的RPC协议，其传输内容以JSON方式，相对于一般的HTTP请求通过URI调用远程服务器，JSON-RPC直接在内容中定义了要调用的函数名称（如 {“method”: “getUser”}），对于开发者来说非常的方便。Bitcoin和Ethereum都支持JSON-RPC通过客户端直接调用节点上的函数或方法。 注意: 以rpc开头的方法名预留作为系统扩展，且必须不能用于其他地方。
+2.约定 由于JSON-RPC使用JSON，它具有与其相同的类型系统(见http://www.json.org或RFC 4627)。JSON可以表示四个基本类型(String、Numbers、Booleans和Null)和两个结构化类型(Objects和Arrays)。 规范中，术语“Primitive”标记那4种原始类型，“Structured”标记两种结构化类型。任何时候文档涉及JSON数据类型，第一个字母都必须大写：Object，Array，String，Number，Boolean，Null。包括True和False也要大写。
+在客户端与任何被匹配到的服务端之间交换的所有成员名字应是区分大小写的。 函数、方法、过程都可以认为是可以互换的。
+客户端被定义为请求对象的来源及响应对象的处理程序。
+服务端被定义为响应对象的起源和请求对象的处理程序。
+该规范的一种实现为可以轻而易举的填补这两个角色,即使是在同一时间,同一客户端或其他不相同的客户端。 该规范不涉及复杂层。
+3.JSON-RPC请求 JSON-RPC 2.0和1.0之间一些差异，我们这里介绍2.0的使用，一个JSON-RPC的请求必须包含以下4个字段。
+1.jsonrpc: 指定JSON-RPC的版本，必须设置为2.0 2.id: 已建立客户端的唯一标识id，值必须包含一个字符串、数值或NULL空值。如果不包含该成员则被认定为是一个通知。该值一般不为NULL，若为数值则不应该包含小数。 3.method: 包含所要调用方法名称的字符串，以rpc开头的方法名，用英文句号连接的为预留给rpc内部的方法名及扩展名，且不能在其他地方使用。 4.params: 方法传入的参数，若无参数则传入空[] 4.JSON-RPC响应 当发起一个RPC调用时，除通知之外服务端都必须有响应，响应表示为一个JSON对象包含以下几个字段。
+1.jsonrpc: 指定JSON-RPC的版本，固定为为2.0 2.id: 调用标识符，用于标示一次远程调用过程，值必须包含一个字符串、数值。 3.result: 如果调用成功则显示响应结果 4.error: 如果调用失败则显示错误的信息，error带有以下几个字段 4.1.code: 使用数值表示该异常的错误类型，必须为整数 【必须】 4.</p>
+  <footer class="post-footer">
+    <a class="read-more" href="/post/go-rpc/">Read More →</a>
+  </footer>
+</article>
+
+      
+        <article class="post-entry">
+  <header class="post-header">
     <h3 class="post-title"><a href="/post/creating-a-new-theme/" class="post-link">Creating a New Theme</a></h3>
     <p class="post-meta">@Michael Henderson · Sep 28, 2014 · 34 min read</p>
   </header>
