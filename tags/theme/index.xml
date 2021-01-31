@@ -1,40 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Theme on Lee</title>
-    <link>http://lixiang-code.github.io/tags/theme/</link>
-    <description>Recent content in Theme on Lee</description>
+    <title>Theme on Hugo Blog</title>
+    <link>/tags/theme/</link>
+    <description>Recent content in Theme on Hugo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Apr 2019 14:26:00 +0800</lastBuildDate>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://lixiang-code.github.io/tags/theme/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/theme/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Creating a New Theme</title>
-      <link>http://lixiang-code.github.io/posts/english-preview/</link>
-      <pubDate>Mon, 01 Apr 2019 14:26:00 +0800</pubDate>
+      <link>/post/creating-a-new-theme/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://lixiang-code.github.io/posts/english-preview/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
+      <guid>/post/creating-a-new-theme/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
-      <title>Theme Preview</title>
-      <link>http://lixiang-code.github.io/posts/theme-preview/</link>
-      <pubDate>Sun, 31 Mar 2019 17:49:40 +0800</pubDate>
+      <title>Hugo 主题 Nuo 文章样式预览</title>
+      <link>/post/hugo-nuo-post-preview/</link>
+      <pubDate>Thu, 17 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://lixiang-code.github.io/posts/theme-preview/</guid>
-      <description>&lt;h1 id=&#34;headings&#34;&gt;Headings&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# H1
-&lt;/span&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## H2
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;### H3
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;#### H4
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;##### H5
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;###### H6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <guid>/post/hugo-nuo-post-preview/</guid>
+      <description>&lt;p&gt;这篇文章集中说明本人博客主题所支持的 Markdown 语法和 Hugo Shortcodes 插件，你也可以在这里预览到他们的样子。如果你不喜欢某些部分的样式，可以去修改 &lt;code&gt;content.scss&lt;/code&gt; 和 &lt;code&gt;shortcodes.scss&lt;/code&gt; 这两个文件。预告一下，我所用的这个名为 &lt;code&gt;Nuo&lt;/code&gt; 的 &lt;code&gt;Hugo&lt;/code&gt; 也将于近期发布，敬请期待。&lt;/p&gt;</description>
     </item>
     
   </channel>

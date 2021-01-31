@@ -1,78 +1,98 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lee</title>
-    <link>http://lixiang-code.github.io/</link>
-    <description>Recent content on Lee</description>
+    <title>Hugo Blog</title>
+    <link>/</link>
+    <description>Recent content on Hugo Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 29 Dec 2018 20:24:28 +0800</lastBuildDate>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you wish to quote or reproduce.</copyright>
+    <lastBuildDate>Fri, 01 Dec 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://lixiang-code.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>药师灌顶真言</title>
-      <link>http://lixiang-code.github.io/posts/chinese-preview/</link>
-      <pubDate>Thu, 11 Apr 2019 14:26:00 +0800</pubDate>
+      <title>Links</title>
+      <link>/links/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://lixiang-code.github.io/posts/chinese-preview/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;修学药师灌顶真言是药师法门的一部分，读诵修持有着极大的功德利益&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;内容&#34;&gt;内容&lt;/h1&gt;
-&lt;p&gt;南无薄伽伐帝鞞杀社&lt;/p&gt;
-&lt;p&gt;窭噜薜琉璃&lt;/p&gt;
-&lt;p&gt;跋喇婆&lt;/p&gt;
-&lt;p&gt;喝啰阇也&lt;/p&gt;</description>
+      <guid>/links/</guid>
+      <description>Ritchie and his friends.</description>
     </item>
     
     <item>
-      <title>日本語敬語体系</title>
-      <link>http://lixiang-code.github.io/posts/japanese-preview/</link>
-      <pubDate>Wed, 10 Apr 2019 14:26:00 +0800</pubDate>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://lixiang-code.github.io/posts/japanese-preview/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;日本語の敬語体系は、一般に、大きく尊敬語・謙譲語・丁寧語に分類される。文化審議会国語分科会は、2007年2月に「敬語の指針」を答申し、これに丁重語および美化語を含めた5分類を示している。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&#34;尊敬語&#34;&gt;尊敬語&lt;/h1&gt;
-&lt;p&gt;尊敬語は、動作の主体を高めることで、主体への敬意を表す言い方である。動詞に「お（ご）～になる」を付けた形、また、助動詞「（ら）れる」を付けた形などが用いられる。たとえば、動詞「取る」の尊敬形として、「（先生が）お取りになる」「（先生が）取られる」などが用いられる。&lt;/p&gt;</description>
+      <guid>/about/</guid>
+      <description>Hugo is a static site engine written in Go.
+It makes use of a variety of open source projects including:
+ Cobra Viper J Walter Weatherman Cast  Learn more and contribute on GitHub.</description>
+    </item>
+    
+    <item>
+      <title>Resume</title>
+      <link>/resume/</link>
+      <pubDate>Fri, 01 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/resume/</guid>
+      <description>This is my resume.</description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>http://lixiang-code.github.io/posts/english-preview/</link>
-      <pubDate>Mon, 01 Apr 2019 14:26:00 +0800</pubDate>
+      <link>/post/creating-a-new-theme/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://lixiang-code.github.io/posts/english-preview/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;</description>
+      <guid>/post/creating-a-new-theme/</guid>
+      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
+We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
-      <title>Theme Preview</title>
-      <link>http://lixiang-code.github.io/posts/theme-preview/</link>
-      <pubDate>Sun, 31 Mar 2019 17:49:40 +0800</pubDate>
+      <title>(Hu)go Template Primer</title>
+      <link>/post/goisforlovers/</link>
+      <pubDate>Mon, 28 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://lixiang-code.github.io/posts/theme-preview/</guid>
-      <description>&lt;h1 id=&#34;headings&#34;&gt;Headings&lt;/h1&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;gh&#34;&gt;# H1
-&lt;/span&gt;&lt;span class=&#34;gh&#34;&gt;&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;## H2
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;### H3
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;#### H4
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;##### H5
-&lt;/span&gt;&lt;span class=&#34;gu&#34;&gt;###### H6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+      <guid>/post/goisforlovers/</guid>
+      <description>Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
+This document is a brief primer on using go templates.</description>
     </item>
     
     <item>
-      <title>关于</title>
-      <link>http://lixiang-code.github.io/about/</link>
-      <pubDate>Sat, 29 Dec 2018 20:24:28 +0800</pubDate>
+      <title>Hugo 主题 Nuo 文章样式预览</title>
+      <link>/post/hugo-nuo-post-preview/</link>
+      <pubDate>Thu, 17 Jul 2014 00:00:00 +0000</pubDate>
       
-      <guid>http://lixiang-code.github.io/about/</guid>
-      <description>Hugo 官方主页: https://gohugo.io/ Hugo的安装方式有两种，一种是直接下载编译好的Hugo二进制文件。如果只是使用Hugo推荐用这种方式。另一种方式是获取Hugo的源码，自己编译。由于各种不可预料的网络问题，第二种方式不</description>
+      <guid>/post/hugo-nuo-post-preview/</guid>
+      <description>&lt;p&gt;这篇文章集中说明本人博客主题所支持的 Markdown 语法和 Hugo Shortcodes 插件，你也可以在这里预览到他们的样子。如果你不喜欢某些部分的样式，可以去修改 &lt;code&gt;content.scss&lt;/code&gt; 和 &lt;code&gt;shortcodes.scss&lt;/code&gt; 这两个文件。预告一下，我所用的这个名为 &lt;code&gt;Nuo&lt;/code&gt; 的 &lt;code&gt;Hugo&lt;/code&gt; 也将于近期发布，敬请期待。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Getting Started with Hugo</title>
+      <link>/post/hugoisforlovers/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/post/hugoisforlovers/</guid>
+      <description>Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
+Save it somewhere specific as we will be using it in the next step.
+More complete instructions are available at installing hugo
+Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
+Follow the following steps:
+ Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:</description>
+    </item>
+    
+    <item>
+      <title>Migrate to Hugo from Jekyll</title>
+      <link>/post/migrate-from-jekyll/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/post/migrate-from-jekyll/</guid>
+      <description>Move static content to static Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
+▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
+▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
     </item>
     
   </channel>
