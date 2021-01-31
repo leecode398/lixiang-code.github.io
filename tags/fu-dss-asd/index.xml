@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>fdss on Lee Blog</title>
-    <link>http://localhost:1313/categories/fdss/</link>
-    <description>Recent content in fdss on Lee Blog</description>
+    <title>fu dss, asd on Lee Blog</title>
+    <link>http://localhost:1313/tags/fu-dss-asd/</link>
+    <description>Recent content in fu dss, asd on Lee Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 31 Jan 2021 21:06:50 +0800</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/fdss/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/fu-dss-asd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
